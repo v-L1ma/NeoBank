@@ -5,6 +5,8 @@ nav{
     justify-content: space-around;
     padding: 1em;
     align-items: center;
+    width: 70vw;
+    margin: auto;
 
     img{
         width: 9em;
@@ -27,6 +29,7 @@ nav{
             li{
                 padding: 0.5em;
                 text-align: center;
+                cursor: pointer;
             }
         }
         
@@ -36,6 +39,13 @@ nav{
             border-radius: 0.5em;
             border: none;
             background-color: variables.$Primary;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover{
+            opacity: .8;
         }
     }
 }
