@@ -1,0 +1,34 @@
+@use "../../../styles/variables.scss";
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    padding: 5em;
+    background-color: variables.$Black;
+    color: white;
+
+    img{
+        height: 2em;
+    }
+
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        h2{
+            color: white;
+        }
+
+        p, li{
+            color: variables.$Silver;
+            list-style: none;
+        }
+
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+    }
+}
