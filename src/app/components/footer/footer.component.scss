@@ -20,9 +20,10 @@ footer{
             color: white;
         }
 
-        p, li{
+        p, li,a{
             color: variables.$Silver;
             list-style: none;
+            text-decoration: none;
         }
 
         ul{
