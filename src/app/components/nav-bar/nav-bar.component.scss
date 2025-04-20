@@ -1,0 +1,56 @@
+@use "../../../styles/variables.scss";
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+    align-items: center;
+    width: 95vw;
+    margin: auto;
+
+    a{
+        text-decoration: none;
+    }
+
+    img{
+        width: 9em;
+        height: 1.5em;
+    }
+
+
+    div{
+        display: flex;
+        gap: 1em;
+        height: 3em;
+        align-items: center;
+
+        ul{
+            display: flex;
+            list-style: none;
+            gap: 2em;
+            height: 2em;
+            justify-content: space-between;
+            li{
+                padding: 0.5em;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+        
+        button{
+            height: 100%;
+            padding: 1em 2em;
+            border-radius: 0.5em;
+            border: none;
+            background-color: variables.$Primary;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover{
+            opacity: .8;
+        }
+    }
+}
+
