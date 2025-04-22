@@ -2,7 +2,7 @@
     <app-nav-bar></app-nav-bar>
 </header>
 <section id="bannerBackground">
-    <div class="bannerContainer">
+    <div class="bannerContainer" #targetElement [@fadeIn]="visibleElements[0] ? 'in' : 'out'">
         <div>
             <h1>Transformando sua experiência bancária<br><span>com inovação e segurança</span></h1>
             <p>Descubra o melhor lugar para gerenciar suas finanças: internet banking com tecnologia de ponta e fácil acesso.</p>
@@ -31,7 +31,7 @@
     <h1>Gerencie todas as suas finanças em um só lugar</h1>
     <p>Nosso sistema é ideal para pessoas físicas, empresas e instituições financeiras</p>
 
-    <div class="cardRow">
+    <div class="cardRow" #targetElement [@fadeIn]="visibleElements[1] ? 'in' : 'out'">
         <div class="card">
             <img src="MembershipIcon.png" alt="">
             <h2>Pessoas <br/>Físicas</h2>
@@ -50,7 +50,7 @@
     </div>
 </section>
 
-<section class="illustratedSection">
+<section class="illustratedSection" #targetElement [@fadeIn]="visibleElements[2] ? 'in' : 'out'">
     <img src="illustration1.png" alt="">
     <div>
         <h1>O futuro do banco digital começa aqui</h1>
@@ -59,7 +59,7 @@
     </div>
 </section>
 
-<section class="statsSection" id="Sobre">
+<section class="statsSection" id="Sobre" #targetElement [@fadeIn]="visibleElements[3] ? 'in' : 'out'">
     <div id="container">
         <div>
             <h1>Impulsionando uma nova era <span>para os serviços financeiros</span></h1>
@@ -98,7 +98,7 @@
     </div>
 </section>
 
-<section class="illustratedSection">
+<section class="illustratedSection" #targetElement [@fadeIn]="visibleElements[4] ? 'in' : 'out'">
     <img src="illustration2.png" alt="">
     <div>
         <h1>Como criamos um banco digital do zero</h1>
