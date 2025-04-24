@@ -14,9 +14,10 @@ import {
   transition,
   animate
 } from '@angular/animations';
+import { RouterModule } from "@angular/router";
 @Component({
   selector: 'app-home',
-  imports: [FooterComponent, NavBarComponent],
+  imports: [FooterComponent, NavBarComponent,RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: [
