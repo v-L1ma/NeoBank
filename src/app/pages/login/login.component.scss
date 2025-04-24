@@ -29,6 +29,10 @@ main{
         justify-content: space-between;
         height: 85%;
 
+        .erros{
+            color: red;
+        }
+
         #signup{
 
             p, a{
@@ -46,7 +50,7 @@ main{
             width: 100%;
         }
 
-        div{
+        div, form{
             width: 100%;
             display: flex;
             flex-direction: column;

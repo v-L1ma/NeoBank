@@ -2,7 +2,7 @@
 
     <div id="form">
         <div id="back">
-            <p>Sign in</p>
+            <p routerLink="/">Sign in</p>
         </div>
         
         <div id="formContainer">
@@ -12,23 +12,31 @@
             <p>Hello there, sign in to continue</p>
         </div>
 
-            <div>
+            <form [formGroup]="loginForm" (ngSubmit)="submit()" #formDir="ngForm">
                 <div class="input">
-                    <label>E-mail</label>
-                    <input type="email" required placeholder="Seumelhoremail@hotmail.com">
+                    <label>E-mail: {{loginForm.value.email}}</label>
+                    <input type="email" required placeholder="Seumelhoremail@hotmail.com" formControlName="email">
+                    @if(email.invalid && formDir.submitted){
+                    <p class="erros">Insira um email valido</p>
+                    }
                 </div>
                 <div class="input">
                     <p>Senha</p>
-                    <input type="text" placeholder="*******">
+                    <input type="text" placeholder="*******" formControlName="password">
+                   
+                   @if (password.invalid && formDir.submitted) {
+                    <p class="erros">Insira uma senha valida</p>
+                   }
                 </div>
                 <p id="forgot">Forgot your password?</p>
-                <button>
+                <button type="submit">
                     Sign in
                 </button>
-            </div>
+            </form>
             <div id="signup">
                 <p>Don't have an account? </p>
-                <a href="">Sign up</a>
+                <a routerLink="/cadastro">Sign up</a>
+                
             </div>
         </div>
     </div>
