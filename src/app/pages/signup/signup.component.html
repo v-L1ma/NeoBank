@@ -12,23 +12,32 @@
             <p>Hello there, let's create your account!</p>
         </div>
 
-            <div>
+            <form [formGroup]="signupForm" (ngSubmit)="submit()" #formDir="ngForm">
                 <div class="input">
                     <label>Nome</label>
-                    <input type="text" required placeholder="Vinicius Lima Santos">
+                    <input type="text" required placeholder="Vinicius Lima Santos" formControlName="name">
+                    @if (name?.invalid && formDir.submitted) {
+                        <p class="erros">Insira uma senha valida!</p>
+                    }
                 </div>
                 <div class="input">
                     <label>E-mail</label>
-                    <input type="email" required placeholder="Seumelhoremail@hotmail.com">
+                    <input type="email" required placeholder="Seumelhoremail@hotmail.com" formControlName="email">
+                    @if (email?.invalid && formDir.submitted) {
+                        <p class="erros">Insira uma senha valida!</p>
+                    }
                 </div>
                 <div class="input">
-                    <p>Senha</p>
-                    <input type="text" placeholder="*******">
+                    <p>Senha {{signupForm.value.password}}</p>
+                    <input type="text" placeholder="*******" formControlName="password">
+                    @if (password?.invalid && formDir.submitted) {
+                        <p class="erros">Insira uma senha valida!</p>
+                    }
                 </div>
                 <button>
                     Sign up
                 </button>
-            </div>
+            </form>
             <div id="signup">
                 <p>Already have an account? </p>
                 <a routerLink="/login">Sign in</a>
