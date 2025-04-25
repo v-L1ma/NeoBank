@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,9 @@ import { RouterModule } from '@angular/router';
 export class LoginComponent {
 
   loginForm!: FormGroup;
+
+  constructor(private loginService: LoginService){
+  }
 
   ngOnInit():void {
 
@@ -28,8 +32,20 @@ export class LoginComponent {
     return this.loginForm.get('password')!
   }
 
-  submit(){
+  getLogin(): void {
+    this.loginService.login(this.loginForm.value).subscribe({
+      next: (response) => {
+        console.log('Login bem-sucedido:', response);
+      },
+      error: (error) => {
+        console.error('Erro na requisição:', error);
+      }
+    });
+  }
+
+  submit():void{
     console.log(this.loginForm.value)
+    this.getLogin();
   }
 
 }
