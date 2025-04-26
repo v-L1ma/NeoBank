@@ -1,0 +1,112 @@
+@use "../../../styles/variables.scss";
+
+main{
+    display: flex;
+    height: 100vh;
+    background-color: #ebfde6;
+}
+
+#form{
+    background-color: white;
+    border-radius:  0 1em 1em 0;
+    width: 30%;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.075);
+
+    #back{
+        padding: 1em 0em 0em 2em;
+        p{
+            font-weight: bolder;
+            color: variables.$Primary;
+            cursor: pointer;
+            width: fit-content;
+            padding: .5em;
+            border-radius: .5em;
+
+            &:hover{
+                background-color: #ebfde6;
+            }
+        }
+    }
+
+    #formContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+        gap: 1em;
+        justify-content: space-between;
+        height: 85%;
+
+        .erros{
+            color: red;
+        }
+
+        #signup{
+
+            p, a{
+                text-align: center;
+            }
+
+            a{
+                color: variables.$Primary;
+                font-weight: bolder;
+            }
+        }
+
+        h1, p{
+            text-align: left;
+            width: 100%;
+        }
+
+        div, form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            #forgot{
+                text-align: right;
+            }
+
+            .input{
+                display: flex;
+
+                gap: .2em;
+
+            input{
+                padding: 1em;
+                border-radius: .5em;
+                border: 1px solid variables.$Grey;
+            }
+            }
+
+            button{
+                appearance: none;
+                cursor: pointer;
+                padding: .8em;
+                border: none;
+                border-radius: .5em;
+                background-color: variables.$Primary;
+                color: white;
+                font-size: 1em;
+                font-weight: bold;
+
+                &:disabled{
+                    opacity: .5;
+                    cursor: not-allowed;
+                }
+            }
+
+        }
+    }
+
+    
+
+}
+
+#banner{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,53 @@
+<main>
+
+    <div id="form">
+        <div id="back">
+            <p routerLink="/">&#9204; Cadastre-se</p>
+        </div>
+        
+        <div id="formContainer">
+
+        <div>
+            <h1>Seja bem-vindo!</h1>
+            <p>Vamos criar sua conta.</p>
+        </div>
+
+            <form [formGroup]="signupForm" (ngSubmit)="submit()" #formDir="ngForm">
+                <div class="input">
+                    <label>Nome</label>
+                    <input type="text" required placeholder="Vinicius Lima Santos" formControlName="name">
+                    @if (name?.invalid && formDir.submitted) {
+                        <p class="erros">Insira uma senha valida!</p>
+                    }
+                </div>
+                <div class="input">
+                    <label>E-mail</label>
+                    <input type="email" required placeholder="Seumelhoremail@hotmail.com" formControlName="email">
+                    @if (email?.invalid && formDir.submitted) {
+                        <p class="erros">Insira uma senha valida!</p>
+                    }
+                </div>
+                <div class="input">
+                    <p>Senha {{signupForm.value.password}}</p>
+                    <input type="text" placeholder="*******" formControlName="password">
+                    @if (password?.invalid && formDir.submitted) {
+                        <p class="erros">Insira uma senha valida!</p>
+                    }
+                </div>
+                <button [disabled]="signupForm.invalid">
+                    Cadastre-se
+                </button>
+            </form>
+            <div id="signup">
+                <p>Já possuí uma conta? </p>
+                <a routerLink="/login">Faça login</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="banner">
+        <img src="illustration2.png" alt="">
+    </div>
+
+</main>
+
