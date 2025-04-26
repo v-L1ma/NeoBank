@@ -29,14 +29,16 @@
                    }
                 </div>
                 <p id="forgot">Forgot your password?</p>
-                <button type="submit">
+                <button type="submit" [disabled]="loginForm.invalid">
                     Sign in
                 </button>
+                @if (error) {
+                    <p id="errorLogin">Houve um erro ao realizar o login, tente novamente.</p>
+                }
             </form>
             <div id="signup">
                 <p>Don't have an account? </p>
                 <a routerLink="/cadastro">Sign up</a>
-                
             </div>
         </div>
     </div>

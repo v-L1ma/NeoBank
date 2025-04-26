@@ -34,7 +34,7 @@
                         <p class="erros">Insira uma senha valida!</p>
                     }
                 </div>
-                <button>
+                <button [disabled]="signupForm.invalid">
                     Sign up
                 </button>
             </form>

@@ -12,6 +12,7 @@ import { LoginService } from '../../services/login.service';
 export class LoginComponent {
 
   loginForm!: FormGroup;
+  error: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router){
   }
@@ -19,7 +20,7 @@ export class LoginComponent {
   ngOnInit():void {
 
   this.loginForm = new FormGroup({
-    email : new FormControl<String>("", [Validators.required, Validators.minLength(5)]),
+    email : new FormControl<String>("", [Validators.required, Validators.minLength(5),Validators.email]),
     password : new FormControl<String>("",[Validators.required, Validators.minLength(5)])
   });
   }
@@ -40,6 +41,7 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error('Erro na requisição:', error);
+        this.error = true;
       }
     });
   }
