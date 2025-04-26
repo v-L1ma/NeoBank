@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
 
-  constructor(private loginService: LoginService){
+  constructor(private loginService: LoginService, private router: Router){
   }
 
   ngOnInit():void {
@@ -36,6 +36,7 @@ export class LoginComponent {
     this.loginService.login(this.loginForm.value).subscribe({
       next: (response) => {
         console.log('Login bem-sucedido:', response);
+        this.router.navigate(["/painel"]);
       },
       error: (error) => {
         console.error('Erro na requisição:', error);

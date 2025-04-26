@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { SignupService } from '../../services/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,6 +12,8 @@ import { RouterModule } from '@angular/router';
 export class SignupComponent {
 
   signupForm!: FormGroup;
+
+  constructor(private signupService: SignupService, private router: Router){}
 
   ngOnInit():void{
     this.signupForm = new FormGroup({
@@ -32,8 +35,21 @@ export class SignupComponent {
     return this.signupForm.get('password')
   }
 
+  signup():void{
+    this.signupService.signup(this.signupForm.value).subscribe({
+      next: (Response)=>{
+        console.log("Cadastro bem-sucedido:", Response)
+      },
+      error: (error) => {
+        console.log("Houve um erro na requisição:", error)
+      }
+    });
+  }
+
   submit(){
     console.log(this.signupForm.value)
+    this.signup();
+
   }
 
 }
