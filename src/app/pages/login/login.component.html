@@ -2,14 +2,14 @@
 
     <div id="form">
         <div id="back">
-            <p routerLink="/">Sign in</p>
+            <p routerLink="/">&#9204; Login</p>
         </div>
         
         <div id="formContainer">
 
         <div>
-            <h1>Welcome Back</h1>
-            <p>Hello there, sign in to continue</p>
+            <h1>Bem-vindo de volta!</h1>
+            <p>Basta fazer login para continuar</p>
         </div>
 
             <form [formGroup]="loginForm" (ngSubmit)="submit()" #formDir="ngForm">
@@ -28,17 +28,17 @@
                     <p class="erros">Insira uma senha valida</p>
                    }
                 </div>
-                <p id="forgot">Forgot your password?</p>
+                <p id="forgot">Esqueceu sua senha?</p>
                 <button type="submit" [disabled]="loginForm.invalid">
-                    Sign in
+                    Login
                 </button>
                 @if (error) {
                     <p id="errorLogin">Houve um erro ao realizar o login, tente novamente.</p>
                 }
             </form>
             <div id="signup">
-                <p>Don't have an account? </p>
-                <a routerLink="/cadastro">Sign up</a>
+                <p>Não tem uma conta? </p>
+                <a routerLink="/cadastro">Cadastre-se</a>
             </div>
         </div>
     </div>

@@ -17,6 +17,14 @@ main{
         p{
             font-weight: bolder;
             color: variables.$Primary;
+            cursor: pointer;
+            width: fit-content;
+            padding: .5em;
+            border-radius: .5em;
+
+            &:hover{
+                background-color: #ebfde6;
+            }
         }
     }
 

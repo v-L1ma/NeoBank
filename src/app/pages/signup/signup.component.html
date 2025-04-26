@@ -2,14 +2,14 @@
 
     <div id="form">
         <div id="back">
-            <p routerLink="/">Sign up</p>
+            <p routerLink="/">&#9204; Cadastre-se</p>
         </div>
         
         <div id="formContainer">
 
         <div>
-            <h1>You're welcome</h1>
-            <p>Hello there, let's create your account!</p>
+            <h1>Seja bem-vindo!</h1>
+            <p>Vamos criar sua conta.</p>
         </div>
 
             <form [formGroup]="signupForm" (ngSubmit)="submit()" #formDir="ngForm">
@@ -35,12 +35,12 @@
                     }
                 </div>
                 <button [disabled]="signupForm.invalid">
-                    Sign up
+                    Cadastre-se
                 </button>
             </form>
             <div id="signup">
-                <p>Already have an account? </p>
-                <a routerLink="/login">Sign in</a>
+                <p>Já possuí uma conta? </p>
+                <a routerLink="/login">Faça login</a>
             </div>
         </div>
     </div>
