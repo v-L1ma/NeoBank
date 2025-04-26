@@ -37,6 +37,7 @@ export class LoginComponent {
     this.loginService.login(this.loginForm.value).subscribe({
       next: (response) => {
         console.log('Login bem-sucedido:', response);
+        localStorage.setItem('token', response.accessToken)
         this.router.navigate(["/painel"]);
       },
       error: (error) => {
