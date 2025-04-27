@@ -54,3 +54,39 @@ nav{
     }
 }
 
+@media screen and (min-width:901px) {
+
+    #icon{
+        display: none;
+
+        img{
+            height: 4em; 
+        }
+    }
+    
+}
+
+
+@media screen and (max-width:900px){
+
+    #icon{
+        display: flex;
+        cursor: pointer;
+
+        img{
+            height: 2em; 
+            width: 2em;
+        }
+    }
+
+    nav{
+        
+    div{
+        display: none;
+    }
+
+    }
+
+    
+
+}

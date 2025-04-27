@@ -33,3 +33,10 @@ footer{
         }
     }
 }
+
+@media screen and (max-width:1100px) {
+    footer{
+        flex-direction: column;
+        gap: 3em;
+    }
+}
