@@ -1,0 +1,45 @@
+@use "../../../styles/variables.scss";
+
+main{
+    padding: 1em;
+}
+
+#balanceSection{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: variables.$Primary;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.226);
+    
+    p,h1,h2,button{
+    color: white;
+    }
+
+    button{
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        font-weight: bold;
+        cursor: pointer;
+        padding: .5em;
+        border-radius: .5em;
+    }
+
+    button:hover{
+        background-color: #0e774d56;
+    }
+
+
+    div:nth-child(1){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div:nth-child(3){
+        display: flex;
+        justify-content: end;
+    }
+}
