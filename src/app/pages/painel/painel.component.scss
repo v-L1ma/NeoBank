@@ -2,6 +2,9 @@
 
 main{
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
 #balanceSection{
@@ -41,5 +44,51 @@ main{
     div:nth-child(3){
         display: flex;
         justify-content: end;
+    }
+}
+
+#menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+
+    .card{
+        background-color: rgba(211, 211, 211, 0.247);
+        width: 4.5em;
+        height: 4.5em;
+        padding: .5em;
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        cursor: pointer;
+
+        h1{
+        font-size: 1em;
+        font-weight: normal;
+        }
+
+        svg{
+            height: 2em;
+            width: 2em;
+        }
+    }
+
+    .card:hover{
+        background-color: variables.$Primary;
+
+        h1{
+            color: white;
+        }
+
+        svg path{
+            fill: white;
+            color: white;
+            background-color: variables.$Primary;
+        }
     }
 }
