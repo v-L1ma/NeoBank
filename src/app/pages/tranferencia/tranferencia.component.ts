@@ -9,4 +9,10 @@ import { RouterModule } from '@angular/router';
 })
 export class TranferenciaComponent {
 
+  isPopUpOpen:boolean = false;
+
+  openPopUp(isPopUpOpen:boolean){
+    this.isPopUpOpen = !isPopUpOpen;
+  }
+
 }

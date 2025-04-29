@@ -73,10 +73,32 @@
         </div>
 
         <div>
-            <button>Continuar</button>
+            <button (click)="openPopUp(isPopUpOpen)">Continuar</button>
         </div>
     </section>
 
+    @if (isPopUpOpen) { 
+    
+        <section id="popup">
+        <div id="background" (click)="openPopUp(isPopUpOpen)">
 
+        </div>
+
+        <div>
+            
+        <h1>Deseja transferir para:</h1>
+    
+        <div>
+        <h1>Vinicius Lima Santos</h1>
+        <p>123.456.789-12</p>
+        <p>Neobank</p>
+        </div>
+    
+        <button>Continuar</button>
+    
+        </div>
+    </section>
+
+    }
 
 </main>
