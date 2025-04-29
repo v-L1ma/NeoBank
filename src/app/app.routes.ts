@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { PainelComponent } from './pages/painel/painel.component';
 import { authGuard } from './guards/auth-guard.guard';
+import { TranferenciaComponent } from './pages/tranferencia/tranferencia.component';
 
 export const routes: Routes = [
     {
@@ -22,5 +23,11 @@ export const routes: Routes = [
         path: "painel",
         component: PainelComponent,
         canActivate: [authGuard]
+
+    },
+    {
+        path: "tranferir",
+        component: TranferenciaComponent,
+        canActivate:[authGuard]
     }
 ];

@@ -1,0 +1,98 @@
+@use "../../../styles/variables.scss";
+
+main{
+    padding: 1em;
+
+    #back{
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        padding: 1em 0em 0em 2em;
+        font-size: 16px;
+        font-weight: bolder;
+        color: variables.$Primary;
+        cursor: pointer;
+        width: fit-content;
+        padding: .5em;
+        border-radius: .5em;
+
+        &:hover{
+            background-color: #ebfde6;
+        }
+        
+    }
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    input{
+        padding: 1em;
+        background-color: variables.$Silver;
+        border: none;
+        border-bottom: 2px solid rgba(0, 128, 0, 0.425);
+        border-radius: .5em .5em 0 0;
+    }
+
+    button{
+        appearance: none;
+        border-radius: .5em;
+        background-color: variables.$Primary;
+        color: variables.$Silver;
+        width: 100%;
+        padding: 1em;
+        font-size: 16px;
+        border: none;
+        font-weight: bolder;
+    }
+}
+
+#lista{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 45vh;
+    overflow-y: scroll;
+}
+
+.item{
+    display: flex;
+    gap: 1em;
+
+    span{
+        background-color: rgba(61, 70, 61, 0.11);
+        align-content: center;
+        text-align: center;
+        padding: 1em;
+        border-radius: 100%;
+        width: 1em;
+        height: 1em;
+        color: rgb(35, 36, 35);
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column;
+        gap: .2em;
+        justify-content: center;
+
+        h1{
+            font-size: 18px;
+        }
+
+        p{
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (min-width:1100px){
+    
+    main{
+        width: 60vw;
+        margin: auto;
+    }
+
+}
