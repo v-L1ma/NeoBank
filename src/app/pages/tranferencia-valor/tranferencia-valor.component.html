@@ -1,0 +1,36 @@
+<main>
+    <button id="back" routerLink="/painel">Fechar</button>
+
+    <h1>Quanto você quer enviar?</h1>
+    <p>Você vai pagar VINCIUS LIMA SANTOS.</p>
+
+    <div>
+        <input type="number" value="{{value}}" placeholder="R$ 0,00" autofocus>
+        <button id="limpar" (click)="cleanValue()">X</button>
+    </div>
+
+    <div>
+        <div>
+            <p>Saldo disponível:</p>
+            <p>
+                R$ 54,00
+            </p>
+        </div>
+
+        <p>esconder</p>
+    </div>
+
+    <div id="opcoes">
+        
+        <p class="item" (click)="addValue(10)">+R$ 10</p>
+
+        <p class="item" (click)="addValue(20)">+R$ 20</p>
+
+        <p class="item" (click)="addValue(50)">+R$ 50</p>
+
+        <p class="item" (click)="addValue(100)">+R$ 100</p>
+        
+    </div>
+
+    <button>Continuar</button>
+</main>

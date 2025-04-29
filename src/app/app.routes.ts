@@ -5,6 +5,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { PainelComponent } from './pages/painel/painel.component';
 import { authGuard } from './guards/auth-guard.guard';
 import { TranferenciaComponent } from './pages/tranferencia/tranferencia.component';
+import { TranferenciaValorComponent } from './pages/tranferencia-valor/tranferencia-valor.component';
 
 export const routes: Routes = [
     {
@@ -26,8 +27,13 @@ export const routes: Routes = [
 
     },
     {
-        path: "tranferir",
+        path: "transferir",
         component: TranferenciaComponent,
+        canActivate:[authGuard]
+    },
+    {
+        path: "transferir/valor",
+        component: TranferenciaValorComponent,
         canActivate:[authGuard]
     }
 ];
