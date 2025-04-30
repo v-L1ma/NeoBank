@@ -1,0 +1,104 @@
+@use "../../../styles/variables.scss";
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    gap: 2em;
+    height: 95vh;
+
+    div.container{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+
+   
+    .containerInfos{
+        display: flex;
+        border: 1px solid rgba(0, 0, 0, 0.164);
+        padding: 2em 1em;
+        border-radius: 1em;
+        gap: 1em;
+
+        #icone{
+            background-color: rgba(128, 128, 128, 0.123);
+            height: 3em;
+            width: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+        }
+
+        .infos{
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+            h1{
+                font-size: 26px;
+            }
+        }
+    }
+
+    #amount{
+        color: green;
+        font-size: 26px;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    #list{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        div{
+            display: flex;
+            gap: 1em;
+            span{
+                font-weight: bolder;
+            }
+        }
+    }
+
+    }
+
+    #back{        
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        padding: 1em 0em 0em 2em;
+        
+            font-weight: bolder;
+            color: variables.$Primary;
+            cursor: pointer;
+            width: fit-content;
+            padding: .5em;
+            border-radius: .5em;
+
+            &:hover{
+                background-color: #ebfde6;
+            }  
+    }
+
+    #finishBtn{
+        background-color: variables.$Primary;
+        padding: 1em;
+        border: none;
+        border-radius: .5em;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        margin-top: auto;
+        font-weight: bolder;
+
+        &:hover{
+            opacity: .9;
+        }
+    }
+}
+
+@media screen and (min-width:1100px){
+    main{
+        width: 60vw;
+        margin: 0 auto;
+    }
+}
