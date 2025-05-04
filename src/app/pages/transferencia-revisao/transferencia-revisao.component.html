@@ -1,7 +1,8 @@
 <main>
 
-    <button id="back" routerLink="/transferir/valor">Voltar</button>
+    <button id="back" (click)="voltar()">Voltar</button>
 
+    <h1>Deseja realmente {{message}}?</h1>
     
     <div class="container">
         <div class="containerInfos">
@@ -31,6 +32,26 @@
         </div>
     </div>
 
-    <button id="finishBtn">Pagar</button>
+    <button id="finishBtn" (click)="openPopUp(isPopUpOpen)">Pagar</button>
+
+    @if (isPopUpOpen) { 
+    
+        <section id="popup">
+        <div id="background" (click)="openPopUp(isPopUpOpen)">
+
+        </div>
+
+        <div [@subirAnimacao]>
+            
+        <h1>Digite a sua senha:</h1>
+
+        <input type="password" autofocus>
+    
+        <button id="finishBtn">Continuar</button>
+    
+        </div>
+    </section>
+
+    }
 
 </main>

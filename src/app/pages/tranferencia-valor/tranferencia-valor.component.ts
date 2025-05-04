@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tranferencia-valor',
@@ -7,11 +7,20 @@ import { RouterModule } from '@angular/router';
   templateUrl: './tranferencia-valor.component.html',
   styleUrl: './tranferencia-valor.component.scss'
 })
-export class TranferenciaValorComponent {
+export class TranferenciaValorComponent implements OnInit{
 
-  @Input() text:string ="";
+  message:string ="";
 
   value:number = 0.00;
+
+  constructor (
+    private route: ActivatedRoute
+  ){}
+
+  ngOnInit(): void {
+    this.message = this.route.snapshot.data['message']
+  }
+  
 
   addValue(value:number){
     this.value+=value;

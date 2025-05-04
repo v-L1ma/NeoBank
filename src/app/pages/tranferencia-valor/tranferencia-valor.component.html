@@ -1,7 +1,7 @@
 <main>
     <button id="back" routerLink="/painel">Fechar</button>
 
-    <h1>Quanto você quer enviar?</h1>
+    <h1>Quanto você quer {{message}}?</h1>
     <p>Você vai pagar VINCIUS LIMA SANTOS.</p>
 
     <div>
@@ -32,5 +32,5 @@
         
     </div>
 
-    <button routerLink="/transferir/revisao">Continuar</button>
+    <button routerLink="/{{message}}/revisao">Continuar</button>
 </main>
