@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './tranferencia-valor.component.scss'
 })
 export class TranferenciaValorComponent {
+
+  @Input() text:string ="";
 
   value:number = 0.00;
 

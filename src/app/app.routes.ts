@@ -41,5 +41,20 @@ export const routes: Routes = [
         path: "transferir/revisao",
         component: TransferenciaRevisaoComponent,
         canActivate: [authGuard]
+    },
+    {
+        path: 'sacar',
+        component: TranferenciaValorComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'depositar',
+        component: TranferenciaValorComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'receber',
+        component: TranferenciaValorComponent,
+        canActivate: [authGuard]
     }
 ];
