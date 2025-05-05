@@ -62,6 +62,12 @@ section{
 .item{
     display: flex;
     gap: 1em;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #f1f1f1;
+        border-radius: 1.5em;
+    }
 
     span{
         background-color: rgba(61, 70, 61, 0.11);

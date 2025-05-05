@@ -15,61 +15,15 @@
         <h2>Recentes</h2>
 
         <div id="lista">
-            <div class="item">
-                <span>V</span>
-                <div class="info">
-                    <h1>Vinicius</h1>
-                    <p>NeoBank S.A.</p>
+            @for (user of users; track $index) {
+                <div class="item">
+                    <span>{{user.nome.charAt(0)}}</span>
+                    <div class="info">
+                        <h1>{{user.nome}}</h1>
+                        <p>{{user.banco}}</p>
+                    </div>
                 </div>
-            
-            </div>
-            <div class="item">
-                <span>V</span>
-                <div class="info">
-                    <h1>Vinicius</h1>
-                    <p>NeoBank S.A.</p>
-                </div>
-            
-            </div>
-            <div class="item">
-                <span>V</span>
-                <div class="info">
-                    <h1>Vinicius</h1>
-                    <p>NeoBank S.A.</p>
-                </div>
-            
-            </div>
-            <div class="item">
-                <span>V</span>
-                <div class="info">
-                    <h1>Vinicius</h1>
-                    <p>NeoBank S.A.</p>
-                </div>
-            
-            </div>
-            <div class="item">
-                <span>V</span>
-                <div class="info">
-                    <h1>Vinicius</h1>
-                    <p>NeoBank S.A.</p>
-                </div>
-            
-            </div>
-            <div class="item">
-                <span>V</span>
-                <div class="info">
-                    <h1>Vinicius</h1>
-                    <p>NeoBank S.A.</p>
-                </div>
-            
-            </div>
-            <div class="item">
-                <span>V</span>
-                <div class="info">
-                    <h1>Vinicius</h1>
-                    <p>NeoBank S.A.</p>
-                </div>
-            </div>            
+            }     
         </div>
 
         <div>

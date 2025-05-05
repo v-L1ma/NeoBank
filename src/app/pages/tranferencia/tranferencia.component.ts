@@ -17,6 +17,28 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class TranferenciaComponent {
+  users = [
+    {
+      nome: "vinicius",
+      banco: "NeoBank S.A.",
+      id: 1
+    },
+    {
+      nome: "vanuza",
+      banco: "NeoBank S.A.",
+      id:2
+    },
+    {
+      nome: "helenice",
+      banco: "NeoBank S.A.",
+      id:3
+    },
+    {
+      nome: "orlando",
+      banco: "NeoBank S.A.",
+      id: 4
+    }
+  ]
 
   isPopUpOpen:boolean = false;
 
