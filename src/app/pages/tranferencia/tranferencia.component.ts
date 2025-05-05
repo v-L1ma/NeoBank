@@ -40,10 +40,30 @@ export class TranferenciaComponent {
     }
   ]
 
+  id: number=0;
+  currentClient = {
+    nome: "",
+    banco: "",
+    id: 0
+  }
+
+  selectAccount(id:number){
+    this.id = id
+  }
+
+  fetchClientData(){
+    this.users.map((client)=>{
+    if(client.id==this.id){
+      this.currentClient = client
+    }}
+  )
+  }
+
   isPopUpOpen:boolean = false;
 
   openPopUp(isPopUpOpen:boolean){
     this.isPopUpOpen = !isPopUpOpen;
+    this.fetchClientData()
   }
 
 }

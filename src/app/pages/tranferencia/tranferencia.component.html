@@ -16,7 +16,7 @@
 
         <div id="lista">
             @for (user of users; track $index) {
-                <div class="item">
+                <div class="item" (click)="selectAccount(user.id)" (click)="openPopUp(isPopUpOpen)">
                     <span>{{user.nome.charAt(0)}}</span>
                     <div class="info">
                         <h1>{{user.nome}}</h1>
@@ -27,11 +27,11 @@
         </div>
 
         <div>
-            <button (click)="openPopUp(isPopUpOpen)">Continuar</button>
+            <button (click)="openPopUp(isPopUpOpen)" [disabled]="id==0">Continuar</button>
         </div>
     </section>
 
-    @if (isPopUpOpen) { 
+    @if (isPopUpOpen) {
     
         <section id="popup">
         <div id="background" (click)="openPopUp(isPopUpOpen)">
@@ -43,9 +43,9 @@
         <h1>Deseja transferir para:</h1>
     
         <div>
-        <h1>Vinicius Lima Santos</h1>
+        <h1>{{currentClient.nome}}</h1>
         <p>123.456.789-12</p>
-        <p>Neobank</p>
+        <p>{{currentClient.banco}}</p>
         </div>
     
         <button routerLink="/transferir/valor">Continuar</button>

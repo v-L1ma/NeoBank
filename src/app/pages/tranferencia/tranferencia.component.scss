@@ -55,7 +55,7 @@ section{
     display: flex;
     flex-direction: column;
     gap: 1em;
-    height: 45vh;
+    height: 40vh;
     overflow-y: scroll;
 }
 
@@ -63,10 +63,16 @@ section{
     display: flex;
     gap: 1em;
     cursor: pointer;
+    padding: .5em;
+    border: 2px solid transparent;
 
     &:hover{
         background-color: #f1f1f1;
         border-radius: 1.5em;
+    }
+
+    &:active{
+        border: 2px solid green;
     }
 
     span{
