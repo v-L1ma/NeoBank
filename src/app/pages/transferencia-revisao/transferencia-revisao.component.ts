@@ -1,11 +1,11 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Location } from '@angular/common';
-import { Component } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-transferencia-revisao',
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './transferencia-revisao.component.html',
   styleUrl: './transferencia-revisao.component.scss',
   animations: [
@@ -21,11 +21,14 @@ export class TransferenciaRevisaoComponent {
 
   name:string ="VINICIUS LIMA SANTOS";
   message:string = "";
+  data: any;
+  date:number = Date.now();
   
   isPopUpOpen:boolean = false;
 
-  constructor(private location: Location, route: ActivatedRoute){
+  constructor(private location: Location, private route: ActivatedRoute, private router: Router){
     this.message=route.snapshot.data['message'];
+    this.data = router.getCurrentNavigation()?.extras.state;
   }
 
   voltar(){

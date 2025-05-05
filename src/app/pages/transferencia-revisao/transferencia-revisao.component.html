@@ -14,7 +14,7 @@
             </div>
         </div>
         
-            <p id="amount">R$ 0,02</p>
+            <p id="amount">R$ {{data.value}}</p>
         <div id="list">
             <div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 9h11l-3-3M20 15H9l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-            <p>Pagar hoje, 30/04/2025</p>
+            <p>Pagar hoje, {{ date | date:'dd/MM/yyyy' }}</p>
             </div>
         </div>
     </div>

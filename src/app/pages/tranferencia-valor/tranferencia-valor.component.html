@@ -2,7 +2,7 @@
     <button id="back" routerLink="/painel">Fechar</button>
 
     <h1>Quanto você quer {{message}}?</h1>
-    <p>Você vai pagar VINCIUS LIMA SANTOS.</p>
+    <p>Você vai pagar {{nome.toUpperCase()}}.</p>
 
     <div>
         <input type="number" value="{{value}}" placeholder="R$ 0,00" autofocus>
@@ -32,5 +32,5 @@
         
     </div>
 
-    <button routerLink="/{{message}}/revisao">Continuar</button>
+    <button (click)="irParaRevisao()">Continuar</button>
 </main>

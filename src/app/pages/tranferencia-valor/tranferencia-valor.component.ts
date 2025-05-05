@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tranferencia-valor',
@@ -10,17 +10,24 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 export class TranferenciaValorComponent implements OnInit{
 
   message:string ="";
+  nome: string = "Vinicius Lima Santos";
 
   value:number = 0.00;
 
   constructor (
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ){}
 
   ngOnInit(): void {
     this.message = this.route.snapshot.data['message']
   }
   
+  irParaRevisao(){
+    this.router.navigate([`/${this.message}/revisao`], {
+      state: {user: this.nome, value: this.value}
+    })
+  }
 
   addValue(value:number){
     this.value+=value;

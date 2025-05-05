@@ -37,7 +37,7 @@ export const routes: Routes = [
         path: "transferir/valor",
         component: TranferenciaValorComponent,
         canActivate:[authGuard],
-        data:{ message: "enviar"}
+        data:{ message: "transferir"}
     },
     {
         path: "transferir/revisao",
