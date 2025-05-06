@@ -24,7 +24,7 @@ main{
     }
 }
 
-section{
+form, section{
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -48,6 +48,10 @@ section{
         border: none;
         font-weight: bolder;
         cursor: pointer;
+
+        &:disabled{
+            opacity: .8;
+        }
     }
 }
 

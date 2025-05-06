@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tranferencia',
-  imports: [RouterModule],
+  imports: [ReactiveFormsModule ,RouterModule],
   templateUrl: './tranferencia.component.html',
   styleUrl: './tranferencia.component.scss',
   animations: [
@@ -16,7 +17,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ])
   ]
 })
-export class TranferenciaComponent {
+export class TranferenciaComponent implements OnInit {
   users = [
     {
       nome: "vinicius",
@@ -41,6 +42,7 @@ export class TranferenciaComponent {
   ]
 
   id: number=0;
+  chaveForm!: FormGroup;
 
   currentClient = {
     nome: "",
@@ -49,6 +51,17 @@ export class TranferenciaComponent {
   }
 
   constructor(private router: Router){}
+
+
+  ngOnInit(): void {
+    this.chaveForm = new FormGroup({
+      chave: new FormControl<String>("", [Validators.required, Validators.minLength(11)])
+    })
+  }
+
+  get getChave(){
+    return this.chaveForm.get('chave')!
+  }
 
   selectAccount(id:number){
     this.id = id
@@ -65,8 +78,14 @@ export class TranferenciaComponent {
   isPopUpOpen:boolean = false;
 
   openPopUp(isPopUpOpen:boolean){
-    this.isPopUpOpen = !isPopUpOpen;
     this.fetchClientData()
+    this.isPopUpOpen = !isPopUpOpen;
+  }
+
+  searchNewReceiver(){
+    const chave = this.getChave.value
+    console.log(chave)
+    this.isPopUpOpen=!this.isPopUpOpen
   }
 
   irParaValor(){

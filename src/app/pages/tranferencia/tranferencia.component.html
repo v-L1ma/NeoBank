@@ -2,10 +2,10 @@
 
     <button id="back" routerLink="/painel">&#9204; Transferir</button>
 
-    <section>
+    <form [formGroup]="chaveForm" (ngSubmit)="searchNewReceiver()" #formDir="ngForm">
         <h1>Insira uma chave Pix</h1>
 
-        <input type="text" placeholder="CPF, celular ou e-mail">
+        <input type="text" formControlName="chave" placeholder="CPF, celular ou e-mail">
 
         <div>
         <p>Uma chave é a identificação de uma conta.</p>
@@ -27,9 +27,9 @@
         </div>
 
         <div>
-            <button (click)="openPopUp(isPopUpOpen)" [disabled]="id==0">Continuar</button>
+            <button type="submit" [disabled]="chaveForm.invalid">Continuar</button>
         </div>
-    </section>
+    </form>
 
     @if (isPopUpOpen) {
     
