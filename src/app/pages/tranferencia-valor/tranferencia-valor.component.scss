@@ -12,6 +12,12 @@ main{
     flex-direction: column;
     gap: 2em;
     padding: 1em;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+    }
     
     #back{        
         appearance: none;
@@ -104,6 +110,10 @@ main{
         border: none;
         font-weight: bolder;
         cursor: pointer;
+
+        &:disabled{
+            opacity: .8;
+        }
     }
 
 }

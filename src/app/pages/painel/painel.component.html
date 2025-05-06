@@ -32,14 +32,14 @@
 
         <div  id="menu">
 
-            <div class="card" routerLink="/transferir">
+            <div class="card" (click)="irParaTransferir()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 9h11l-3-3M20 15H9l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
             
                 <h1>Tranferir</h1>
             </div>
-            <div class="card" routerLink="/sacar">
+            <div class="card" (click)="irParaSacar()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <!-- Retângulo superior (barra horizontal) -->
                     <path d="M4 4h16a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/>
@@ -57,7 +57,7 @@
             
                 <h1>Sacar</h1>
             </div>
-            <div class="card" routerLink="/depositar">
+            <div class="card" (click)="irParaDepositar()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <!-- Parte de cima: aberta só na esquerda -->
                     <path d="M7 8h14" />

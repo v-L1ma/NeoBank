@@ -4,11 +4,13 @@
     <h1>Quanto você quer {{message}}?</h1>
     <p>Você vai pagar {{data.currentClient.nome}}.</p>
 
+    <form [formGroup]="valueForm" (ngSubmit)="irParaRevisao()" #formDir="ngForm">
     <div>
-        <form [formGroup]="valueForm" (ngSubmit)="irParaRevisao()" #formDir="ngForm">
-            <input type="number" value="{{value}}" placeholder="R$ 0,00" autofocus>
-        </form>
-        <button id="limpar" (click)="cleanValue()">X</button>
+            <input type="number" value="{{getValue.value}}" formControlName="value" placeholder="R$ 0.00" autofocus>
+            @if (getValue.invalid && formDir.submitted) {
+                <p>O valor deve ser no minimo 0.01</p>
+            }
+        <button id="limpar" type="button" (click)="cleanValue()">X</button>
     </div>
 
     <div>
@@ -34,6 +36,6 @@
         
     </div>
 
-    <button>Continuar</button>
-
+    <button type="submit" [disabled]="valueForm.invalid">Continuar</button>
+    </form>
 </main>

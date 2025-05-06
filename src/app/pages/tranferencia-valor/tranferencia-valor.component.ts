@@ -15,8 +15,6 @@ export class TranferenciaValorComponent implements OnInit{
   data: any;
   valueForm!: FormGroup;
 
-  value:number = 0;
-
   constructor (
     private route: ActivatedRoute,
     private router: Router
@@ -32,17 +30,22 @@ export class TranferenciaValorComponent implements OnInit{
     })
   }
 
+  get getValue(){
+    return this.valueForm.get('value')!
+  }
+
   addValue(value:number){
-    this.value+=value;
+    const currentValue = this.getValue.value ?? 0
+    this.getValue.setValue(currentValue+value)
   }
 
   cleanValue(){
-    this.value=0;
+    this.getValue.setValue(0)
   }
 
   irParaRevisao(){
     this.router.navigate([`/${this.message}/revisao`], {
-      state: {currentClient: this.data.currentClient , value: this.value}
+      state: {currentClient: this.data.currentClient , value: this.getValue.value}
     })
   }
 
