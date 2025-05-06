@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -41,11 +41,14 @@ export class TranferenciaComponent {
   ]
 
   id: number=0;
+
   currentClient = {
     nome: "",
     banco: "",
     id: 0
   }
+
+  constructor(private router: Router){}
 
   selectAccount(id:number){
     this.id = id
@@ -64,6 +67,14 @@ export class TranferenciaComponent {
   openPopUp(isPopUpOpen:boolean){
     this.isPopUpOpen = !isPopUpOpen;
     this.fetchClientData()
+  }
+
+  irParaValor(){
+    this.router.navigate(["/transferir/valor"], {
+      state: {
+        currentClient: this.currentClient
+      }
+    })
   }
 
 }

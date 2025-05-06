@@ -19,7 +19,6 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 })
 export class TransferenciaRevisaoComponent {
 
-  name:string ="VINICIUS LIMA SANTOS";
   message:string = "";
   data: any;
   date:number = Date.now();

@@ -2,10 +2,12 @@
     <button id="back" routerLink="/painel">Fechar</button>
 
     <h1>Quanto você quer {{message}}?</h1>
-    <p>Você vai pagar {{nome.toUpperCase()}}.</p>
+    <p>Você vai pagar {{data.currentClient.nome}}.</p>
 
     <div>
-        <input type="number" value="{{value}}" placeholder="R$ 0,00" autofocus>
+        <form [formGroup]="valueForm" (ngSubmit)="irParaRevisao()" #formDir="ngForm">
+            <input type="number" value="{{value}}" placeholder="R$ 0,00" autofocus>
+        </form>
         <button id="limpar" (click)="cleanValue()">X</button>
     </div>
 
@@ -32,6 +34,6 @@
         
     </div>
 
-    <button (click)="irParaRevisao()">Continuar</button>
+    <button>Continuar</button>
 
 </main>
