@@ -57,6 +57,8 @@ export class TranferenciaComponent implements OnInit {
     this.chaveForm = new FormGroup({
       chave: new FormControl<string>("", [Validators.required, Validators.minLength(11)])
     })
+    const localUsers = localStorage.getItem("recentReceivers")!
+    this.users = JSON.parse(localUsers)
   }
 
   get getChave(){
@@ -90,6 +92,19 @@ export class TranferenciaComponent implements OnInit {
   }
 
   irParaValor(){
+    let isReceiverSaved = false;
+
+    for (let index = 0; index < this.users.length; index++) {
+      if(this.users[index].id == this.currentClient.id){
+        isReceiverSaved=true;
+      }      
+    }
+
+    if(!isReceiverSaved){
+      this.users.push(this.currentClient)
+      localStorage.setItem("recentReceivers", JSON.stringify(this.users))
+    }
+
     this.router.navigate(["/transferir/valor"], {
       state: {
         currentClient: this.currentClient
