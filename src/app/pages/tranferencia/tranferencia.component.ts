@@ -41,7 +41,7 @@ export class TranferenciaComponent implements OnInit {
     }
   ]
 
-  id: number=0;
+  id: number | string =0;
   chaveForm!: FormGroup;
 
   currentClient = {
@@ -55,7 +55,7 @@ export class TranferenciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.chaveForm = new FormGroup({
-      chave: new FormControl<String>("", [Validators.required, Validators.minLength(11)])
+      chave: new FormControl<string>("", [Validators.required, Validators.minLength(11)])
     })
   }
 
@@ -63,7 +63,7 @@ export class TranferenciaComponent implements OnInit {
     return this.chaveForm.get('chave')!
   }
 
-  selectAccount(id:number){
+  selectAccount(id:number | string){
     this.id = id
   }
 
@@ -84,7 +84,8 @@ export class TranferenciaComponent implements OnInit {
 
   searchNewReceiver(){
     const chave = this.getChave.value
-    console.log(chave)
+    this.selectAccount(chave)
+    this.currentClient.id = chave
     this.isPopUpOpen=!this.isPopUpOpen
   }
 

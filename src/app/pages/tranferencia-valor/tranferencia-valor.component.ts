@@ -1,10 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-tranferencia-valor',
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, NgxMaskDirective],
+  providers: [
+    provideNgxMask(),
+  ],
   templateUrl: './tranferencia-valor.component.html',
   styleUrl: './tranferencia-valor.component.scss'
 })

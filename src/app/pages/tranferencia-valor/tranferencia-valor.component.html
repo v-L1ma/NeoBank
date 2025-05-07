@@ -6,7 +6,13 @@
 
     <form [formGroup]="valueForm" (ngSubmit)="irParaRevisao()" #formDir="ngForm">
     <div>
-            <input type="number" value="{{getValue.value}}" formControlName="value" placeholder="R$ 0.00" autofocus>
+            <input 
+            type="text" 
+            value="{{getValue.value}}" 
+            mask="separator.2" 
+            formControlName="value" 
+            placeholder="R$ 0.00" 
+            autofocus>
             @if (getValue.invalid && formDir.submitted) {
                 <p>O valor deve ser no minimo 0.01</p>
             }

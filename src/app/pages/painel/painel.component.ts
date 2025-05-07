@@ -11,7 +11,8 @@ export class PainelComponent {
 
   clientInfo={
     nome: 'vinicius',
-    banco: 'neobank'
+    banco: 'neobank',
+    balance: 100.80
   }
 
   constructor(private router: Router){}
