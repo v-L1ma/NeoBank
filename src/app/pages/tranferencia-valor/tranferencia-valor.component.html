@@ -1,0 +1,47 @@
+<main>
+    <button id="back" routerLink="/painel">Fechar</button>
+
+    <h1>Quanto você quer {{message}}?</h1>
+    <p>Você vai pagar {{data.currentClient.nome}}.</p>
+
+    <form [formGroup]="valueForm" (ngSubmit)="irParaRevisao()" #formDir="ngForm">
+    <div>
+            <input 
+            type="text" 
+            value="{{getValue.value}}" 
+            mask="separator.2" 
+            formControlName="value" 
+            placeholder="R$ 0.00" 
+            autofocus>
+            @if (getValue.invalid && formDir.submitted) {
+                <p>O valor deve ser no minimo 0.01</p>
+            }
+        <button id="limpar" type="button" (click)="cleanValue()">X</button>
+    </div>
+
+    <div>
+        <div>
+            <p>Saldo disponível:</p>
+            <p>
+                R$ 54,00
+            </p>
+        </div>
+
+        <p>esconder</p>
+    </div>
+
+    <div id="opcoes">
+        
+        <p class="item" (click)="addValue(10)">+R$ 10</p>
+
+        <p class="item" (click)="addValue(20)">+R$ 20</p>
+
+        <p class="item" (click)="addValue(50)">+R$ 50</p>
+
+        <p class="item" (click)="addValue(100)">+R$ 100</p>
+        
+    </div>
+
+    <button type="submit" [disabled]="valueForm.invalid">Continuar</button>
+    </form>
+</main>

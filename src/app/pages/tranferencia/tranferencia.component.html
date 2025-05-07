@@ -1,0 +1,58 @@
+<main>
+
+    <button id="back" routerLink="/painel">&#9204; Transferir</button>
+
+    <form [formGroup]="chaveForm" (ngSubmit)="searchNewReceiver()" #formDir="ngForm">
+        <h1>Insira uma chave Pix</h1>
+
+        <input type="text" formControlName="chave" placeholder="CPF, celular ou e-mail">
+
+        <div>
+        <p>Uma chave é a identificação de uma conta.</p>
+        <p>Pode ser um CPF, celular ou um e-mail.</p>
+        </div>
+
+        <h2>Recentes</h2>
+
+        <div id="lista">
+            @for (user of users; track $index) {
+                <div class="item" (click)="selectAccount(user.id)" (click)="openPopUp(isPopUpOpen)">
+                    <span>{{user.nome.charAt(0)}}</span>
+                    <div class="info">
+                        <h1>{{user.nome}}</h1>
+                        <p>{{user.banco}}</p>
+                    </div>
+                </div>
+            }     
+        </div>
+
+        <div>
+            <button type="submit" [disabled]="chaveForm.invalid">Continuar</button>
+        </div>
+    </form>
+
+    @if (isPopUpOpen) {
+    
+        <section id="popup">
+        <div id="background" (click)="openPopUp(isPopUpOpen)">
+
+        </div>
+
+        <div [@subirAnimacao]>
+            
+        <h1>Deseja transferir para:</h1>
+    
+        <div>
+        <h1>{{currentClient.nome}}</h1>
+        <p>{{currentClient.id}}</p>
+        <p>{{currentClient.banco}}</p>
+        </div>
+    
+        <button (click)="irParaValor()">Continuar</button>
+    
+        </div>
+    </section>
+
+    }
+
+</main>

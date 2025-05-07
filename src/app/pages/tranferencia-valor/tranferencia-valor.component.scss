@@ -1,0 +1,133 @@
+@use "../../../styles/variables.scss";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main{
+
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+    }
+    
+    #back{        
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        padding: 1em 0em 0em 2em;
+        
+            font-weight: bolder;
+            color: variables.$Primary;
+            cursor: pointer;
+            width: fit-content;
+            padding: .5em;
+            border-radius: .5em;
+
+            &:hover{
+                background-color: #ebfde6;
+            }
+        
+    }
+
+    div{
+        input[type=text]{
+            position: relative;
+            padding: 1em;
+            border-radius: .5em .5em 0 0;
+            border: none;
+            background-color: variables.$Silver;
+            font-size: 1em;
+            text-align: center;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.096);
+            -moz-appearance: textfield;
+            width: 100%;
+    
+            &:focus{
+                color: black;
+                font-weight: bolder;
+            }
+        }
+
+        #limpar{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: .5em;
+            height: .5em;
+            border-radius: 100%;
+            background-color: black;
+            border: 2px solid black;
+            color: white;
+            left: 85%;
+            margin-top: .5em;
+
+            &:hover{
+                background-color: transparent;
+                color: black;
+            }
+        }
+    }
+
+    div{
+        display: flex;
+        justify-content: space-between;
+
+        div{
+            gap: .5em;
+        }
+    }
+
+    #opcoes{
+        display: flex;
+        justify-content: space-between;
+
+        .item{
+            background-color: variables.$Silver;
+            padding: .8em 1em;
+            border-radius: 2em;
+            cursor: pointer;
+        }
+    }
+
+    button{
+        appearance: none;
+        border-radius: .5em;
+        background-color: variables.$Primary;
+        color: variables.$Silver;
+        width: 100%;
+        padding: 1em;
+        font-size: 16px;
+        border: none;
+        font-weight: bolder;
+        cursor: pointer;
+
+        &:disabled{
+            opacity: .8;
+        }
+    }
+
+}
+
+@media screen and (min-width:1100px){
+    main{
+        width: 60vw;
+        margin: 0 auto;
+
+    div{
+        #limpar{
+            left: 75%;
+        }
+    }
+
+    }
+}

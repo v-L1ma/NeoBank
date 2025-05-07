@@ -208,4 +208,53 @@ main{
         }
     }
 
+    #clientes{
+
+        div{
+            
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 2em;
+
+        }
+    }
+
+    .content{
+
+        .cardRow{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .illustratedSection{
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .statsSection{
+    
+        #container{
+        display: flex;
+        flex-direction: column;
+    
+        #statsRow{
+            display: grid;
+            grid-template-columns: repeat(1, auto);
+            gap: 1em;
+            margin-top: 1em;
+    
+            .statsCard{
+                padding: 0 2em;
+                display: flex;
+                gap: 2em;
+            }
+        }
+    
+        }
+        
+    }
+    
+
 }

@@ -1,0 +1,57 @@
+<main>
+
+    <button id="back" (click)="voltar()">Voltar</button>
+
+    <h1>Deseja realmente {{message}}?</h1>
+    
+    <div class="container">
+        <div class="containerInfos">
+            <p id="icone">{{data.currentClient.nome.at(0)}}</p>
+            <div class="infos">
+                <h1>{{data.currentClient.nome}}</h1>
+                <p>111.111.111-11</p>
+                <p>{{data.currentClient.banco}}</p>
+            </div>
+        </div>
+        
+            <p id="amount">R$ {{data.value}}</p>
+        <div id="list">
+            <div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 9h11l-3-3M20 15H9l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>Saldo na carteira: <span>R$ 27,96</span></p>
+            </div>
+        
+            <div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 9h11l-3-3M20 15H9l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            <p>Pagar hoje, {{ date | date:'dd/MM/yyyy' }}</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="finishBtn" (click)="openPopUp(isPopUpOpen)">Pagar</button>
+
+    @if (isPopUpOpen) { 
+    
+        <section id="popup">
+        <div id="background" (click)="openPopUp(isPopUpOpen)">
+
+        </div>
+
+        <div [@subirAnimacao]>
+            
+        <h1>Digite a sua senha:</h1>
+
+        <input type="password" autofocus>
+    
+        <button id="finishBtn">Continuar</button>
+    
+        </div>
+    </section>
+
+    }
+
+</main>
