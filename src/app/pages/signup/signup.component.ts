@@ -19,6 +19,7 @@ export class SignupComponent {
     this.signupForm = new FormGroup({
       name: new FormControl("", Validators.required),
       email: new FormControl("", [Validators.required, Validators.email]),
+      birthday: new FormControl(Date, [Validators.required]),
       password: new FormControl("", [Validators.required, Validators.minLength(3)])
     });
   }
@@ -29,6 +30,10 @@ export class SignupComponent {
 
   get email(){
     return this.signupForm.get('email')
+  }
+
+  get birthday(){
+    return this.signupForm.get('birthday')
   }
 
   get password(){
