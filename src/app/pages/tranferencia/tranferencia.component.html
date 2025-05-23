@@ -16,10 +16,11 @@
 
         <div id="lista">
             @for (user of users; track $index) {
-                <div class="item" (click)="selectAccount(user.id)" (click)="openPopUp(isPopUpOpen)">
+                <div class="item" (click)="selectAccount(user.pix)" (click)="openPopUp(isPopUpOpen)">
                     <span>{{user.nome.charAt(0)}}</span>
                     <div class="info">
                         <h1>{{user.nome}}</h1>
+                        <p>{{user.pix}}</p>
                         <p>{{user.banco}}</p>
                     </div>
                 </div>
@@ -44,7 +45,7 @@
     
         <div>
         <h1>{{currentClient.nome}}</h1>
-        <p>{{currentClient.id}}</p>
+        <p>{{currentClient.pix}}</p>
         <p>{{currentClient.banco}}</p>
         </div>
     
