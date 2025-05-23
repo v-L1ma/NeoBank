@@ -15,16 +15,22 @@
         <h2>Recentes</h2>
 
         <div id="lista">
-            @for (user of users; track $index) {
-                <div class="item" (click)="selectAccount(user.pix)" (click)="openPopUp(isPopUpOpen)">
-                    <span>{{user.nome.charAt(0)}}</span>
+            @if (contacts.length<=0) {
+
+                <p>Nenhum contato recente foi encontrado.</p>
+
+            }
+
+            @for (contact of contacts; track $index) {
+                <div class="item" (click)="selectAccount(contact.pix)" (click)="openPopUp(isPopUpOpen)">
+                    <span>{{contact.nome.charAt(0)}}</span>
                     <div class="info">
-                        <h1>{{user.nome}}</h1>
-                        <p>{{user.pix}}</p>
-                        <p>{{user.banco}}</p>
+                        <h1>{{contact.nome}}</h1>
+                        <p>{{contact.pix}}</p>
+                        <p>{{contact.banco}}</p>
                     </div>
                 </div>
-            }     
+            }   
         </div>
 
         <div>

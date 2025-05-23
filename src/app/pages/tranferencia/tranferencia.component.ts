@@ -4,6 +4,12 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FetchClienteInfoByPixService } from '../../services/fetch-cliente-info-by-pix.service';
 
+interface IContacts {
+  nome: string;
+  pix: string;
+  banco: string;
+}
+
 @Component({
   selector: 'app-tranferencia',
   imports: [ReactiveFormsModule ,RouterModule],
@@ -19,32 +25,10 @@ import { FetchClienteInfoByPixService } from '../../services/fetch-cliente-info-
   ]
 })
 export class TranferenciaComponent implements OnInit {
-  users = [ {
-    nome: "vinicius",
-    pix: "vinicius@hotmail.com",
-    banco: "NeoBank S.A.",
-    id: "1"
-  },
-  {
-    nome: "vanuza",
-    pix: "vinicius@hotmail.com",
-    banco: "NeoBank S.A.",
-    id:"2"
-  },
-  {
-    nome: "helenice",
-    pix: "vinicius@hotmail.com",
-    banco: "NeoBank S.A.",
-    id:"3"
-  },
-  {
-    nome: "orlando",
-    pix: "vinicius@hotmail.com",
-    banco: "NeoBank S.A.",
-    id: "4"
-  }]
+  
+  contacts : IContacts[] = [];
 
-  id: string = "";
+  chave: string = "";
   chaveForm!: FormGroup;
 
   currentClient = {
@@ -61,7 +45,9 @@ export class TranferenciaComponent implements OnInit {
       chave: new FormControl<string>("", [Validators.required, Validators.minLength(11)])
     });
 
-    this.users = JSON.parse(localStorage.getItem("recentReceivers")!);    
+    const storedContacts = localStorage.getItem("recentsContacts");
+
+    this.contacts = storedContacts ? JSON.parse(storedContacts) : [];    
   }
 
   get getChave(){
@@ -69,11 +55,11 @@ export class TranferenciaComponent implements OnInit {
   }
 
   selectAccount(id: string){
-    this.id = id
+    this.chave = id
   }
 
   fetchClientData(id:string){
-    //this.users.map((client)=>{
+    //this.contacts.map((client)=>{
     //if(client.id==this.id){
       //this.currentClient = client
     //}}
@@ -94,7 +80,7 @@ export class TranferenciaComponent implements OnInit {
   isPopUpOpen:boolean = false;
 
   openPopUp(isPopUpOpen:boolean){
-    this.fetchClientData(this.id)
+    this.fetchClientData(this.chave)
     this.isPopUpOpen = !isPopUpOpen;
   }
 
@@ -108,13 +94,18 @@ export class TranferenciaComponent implements OnInit {
         this.currentClient.nome = response.name;
         this.currentClient.pix = chave;
         this.currentClient.banco = "NeoBank S.A.";
+
+        if(!this.contacts.includes(this.currentClient)){
+          this.contacts.push(this.currentClient);
+          localStorage.setItem("recentsContacts", JSON.stringify(this.contacts));
+        }    
+
+        this.isPopUpOpen=!this.isPopUpOpen
       },
       error: (error)=>{
         console.log(error);
       }
     });
-
-    this.isPopUpOpen=!this.isPopUpOpen
   }
 
   irParaValor(){
