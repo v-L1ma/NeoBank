@@ -3,22 +3,23 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 interface ITransferenciaRequest {
-  senderId: string,
-  chavePix: string,
-  value: number,
-  password: string
+  senderId?: string,
+  clienteId?: string,
+  chavePix?: string,
+  value?: number,
+  password?: string
 }
 @Injectable({
   providedIn: 'root'
 })
 export class TransferirService {
 
-  private apiUrl = "http://localhost:5192/Transacoes/Transferir";
+  private apiUrl = "http://localhost:5192/Transacoes/";
 
   constructor(private http: HttpClient) { }
 
-  public transferir(TransferenciaRequest: ITransferenciaRequest){
-    return this.http.post(this.apiUrl, TransferenciaRequest, {responseType: "text"}).subscribe({
+  public transferir(TransferenciaRequest: ITransferenciaRequest, transacao:string){
+    return this.http.post(this.apiUrl+transacao, TransferenciaRequest, {responseType: "text"}).subscribe({
       next: (response)=>{
         console.log("Transferencia concluida com exito!", response);
 

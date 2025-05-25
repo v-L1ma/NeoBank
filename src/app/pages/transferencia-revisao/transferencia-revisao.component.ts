@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TransferirService } from '../../services/transferir/transferir.service';
+import { Observable } from 'rxjs';
 
 interface IuserInfo {
   balance: string;
@@ -32,6 +33,7 @@ export class TransferenciaRevisaoComponent implements OnInit {
   date: number = Date.now();
   passwordForm!: FormGroup;
   userInfo: IuserInfo;
+  transferirRequest: any;
 
   isPopUpOpen: boolean = false;
 
@@ -71,30 +73,39 @@ export class TransferenciaRevisaoComponent implements OnInit {
 
     switch (this.message) {
       case "transferir":
-        const transferirRequest = {
+        this.transferirRequest = {
           "senderId": this.userInfo.id,
           "chavePix": this.data.currentClient.pix,
           "value": this.data.value,
           "password": this.password.value
         }
 
-        const response = this.transferirService.transferir(transferirRequest);
+        this.transferirService.transferir(this.transferirRequest, this.message);
         break;
 
       case "sacar":
-        console.log("Not implemented");
+        this.transferirRequest ={
+          "clienteId": this.userInfo.id,
+          "value": this.data.value,
+          "password": this.password.value
+        }
+        this.transferirService.transferir(this.transferirRequest, this.message)
         break;
 
       case "depositar":
-        console.log("Not implemented");
+        this.transferirRequest = {
+          "clienteId": this.userInfo.id,
+          "value": this.data.value,
+        }
+        this.transferirService.transferir(this.transferirRequest, this.message);
         break;
 
       case "cobrar":
-        console.log("Not implemented");
-        break;
-
-      case "pagar":
-        console.log("Not implemented");
+        this.transferirRequest = {
+          "receiverId": this.data.currentClient.id,
+          "value": this.data.value,
+        }
+        this.transferirService.transferir(this.transferirRequest, this.message);
         break;
 
       default:

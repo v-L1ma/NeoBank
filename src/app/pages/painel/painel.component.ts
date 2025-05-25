@@ -43,7 +43,7 @@ export class PainelComponent implements OnInit{
     })
   }
   irParaDepositar(){
-    this.router.navigate(["/sacar"], {
+    this.router.navigate(["/depositar"], {
       state: {currentClient:this.clientInfo}
     })
   }
