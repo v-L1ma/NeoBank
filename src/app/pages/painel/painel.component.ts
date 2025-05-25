@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FetchUserInfoService } from '../../services/fetch-user-info.service';
+import { ExtratoService } from '../../services/extrato/extrato.service';
+
+interface transacao {
+  tipo: string;
+  receiverName: string;
+  data: string;  
+  value: number;
+}
 
 @Component({
   selector: 'app-painel',
@@ -17,7 +25,9 @@ export class PainelComponent implements OnInit{
     balance: 0
   }
 
-  constructor(private router: Router, private fetchUserInfo: FetchUserInfoService){}
+  transacoes: transacao[] = [];
+
+  constructor(private router: Router, private fetchUserInfo: FetchUserInfoService, private extratoService: ExtratoService){}
   
   ngOnInit(): void {
 
@@ -35,6 +45,15 @@ export class PainelComponent implements OnInit{
       }
     })
 
+    this.extratoService.extrato(userInfo.id).subscribe({
+      next: (response)=>{
+        this.transacoes = response.transacoes
+        console.log(this.transacoes)
+      },
+      error: (error)=>{
+        console.log(error)
+      }
+    })
   }
 
   irParaSacar(){

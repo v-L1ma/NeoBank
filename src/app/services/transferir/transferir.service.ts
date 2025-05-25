@@ -22,7 +22,6 @@ export class TransferirService {
     return this.http.post(this.apiUrl+transacao, TransferenciaRequest, {responseType: "text"}).subscribe({
       next: (response)=>{
         console.log("Transferencia concluida com exito!", response);
-
       },
       error: (error)=>{
         console.log("Transferencia concluida com exito!", error);
