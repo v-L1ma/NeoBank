@@ -20,7 +20,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 9h11l-3-3M20 15H9l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <p>Saldo na carteira: <span>R$ 27,96</span></p>
+                <p>Saldo na carteira: <span>R$ {{userInfo.balance}}</span></p>
             </div>
         
             <div>
@@ -44,11 +44,20 @@
         <div [@subirAnimacao]>
             
         <h1>Digite a sua senha:</h1>
+        
+        <form [formGroup]="passwordForm" (ngSubmit)="submit()" #formDir="ngForm">
+    
+            <input formControlName="password" type="password" placeholder="********" autofocus>
+            @if(password.invalid && formDir.submitted){
+                <p>Por favor, insira uma senha válida.</p>
+            }
+    
+            <button id="finishBtn" type="submit" [disabled]="passwordForm.invalid">
+                Continuar
+            </button>
+    
+        </form>
 
-        <input type="password" autofocus>
-    
-        <button id="finishBtn">Continuar</button>
-    
         </div>
     </section>
 

@@ -47,6 +47,7 @@ export class TranferenciaValorComponent implements OnInit{
     this.getValue.setValue(0)
   }
 
+
   irParaRevisao(){
     this.router.navigate([`/${this.message}/revisao`], {
       state: {currentClient: this.data.currentClient , value: this.getValue.value}

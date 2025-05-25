@@ -120,6 +120,10 @@ main{
         width: 100%;
     }
 
+    form{
+        width: 100%;
+    }
+
     div{
         background-color: white;
         padding: 2em;
@@ -137,7 +141,13 @@ main{
 
         button{
             margin-top: 2em;
+
+            &:disabled{
+                opacity: .8;
+            }
         }
+
+
     }
 }
 

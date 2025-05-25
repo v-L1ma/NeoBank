@@ -14,7 +14,7 @@
 
             <form [formGroup]="loginForm" (ngSubmit)="submit()" #formDir="ngForm">
                 <div class="input">
-                    <label>E-mail: {{loginForm.value.email}}</label>
+                    <label>E-mail:</label>
                     <input type="email" required placeholder="Seumelhoremail@hotmail.com" formControlName="email">
                     @if(email.invalid && formDir.submitted){
                     <p class="erros">Insira um email valido</p>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="input">
                     <p>Senha</p>
-                    <input type="text" placeholder="*******" formControlName="password">
+                    <input type="password" placeholder="*******" formControlName="password">
                    
                    @if (password.invalid && formDir.submitted) {
                     <p class="erros">Insira uma senha valida</p>
