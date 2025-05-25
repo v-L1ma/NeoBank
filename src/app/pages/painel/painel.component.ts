@@ -56,6 +56,13 @@ export class PainelComponent implements OnInit{
     })
   }
 
+  get transacoesOrdenadas() {
+    return this.transacoes.sort(
+      (transacaoA, transacaoB) => 
+        new Date(transacaoB.data).getTime() - new Date(transacaoA.data).getTime()
+    );
+  }
+
   irParaSacar(){
     this.router.navigate(["/sacar"], {
       state: {currentClient:this.clientInfo}
