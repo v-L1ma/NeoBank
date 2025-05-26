@@ -8,6 +8,7 @@ import { TranferenciaComponent } from './pages/tranferencia/tranferencia.compone
 import { TranferenciaValorComponent } from './pages/tranferencia-valor/tranferencia-valor.component';
 import { TransferenciaRevisaoComponent } from './pages/transferencia-revisao/transferencia-revisao.component';
 import { LoginService } from './services/login.service';
+import { AreapixComponent } from './pages/areapix/areapix/areapix.component';
 
 export const routes: Routes = [
     {
@@ -80,5 +81,10 @@ export const routes: Routes = [
         component: TransferenciaRevisaoComponent,
         canActivate: [authGuard],
         data:{ message: "receber"}
+    },
+    {
+        path: "areapix",
+        component: AreapixComponent,
+        canActivate: [authGuard]
     }
 ];

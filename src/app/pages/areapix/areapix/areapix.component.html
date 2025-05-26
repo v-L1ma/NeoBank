@@ -1,0 +1,157 @@
+<main>
+
+    <button id="back" routerLink="/painel">&#9204; Transferir</button>
+
+    <div>
+        <h1>Minhas chaves</h1>
+        <p>Aqui você pode gerenciar suas chave para receber via PIX.</p>
+    </div>
+
+    <div id="lista">
+
+        <div class="item">
+            <div class="icon">
+            <mat-icon>mail</mat-icon>
+            </div>
+            <div>
+                <p>E-mail</p>
+                <h2>viniciuslima957hotmail.com</h2>
+            </div>
+            <div class="options">
+                <mat-icon>file_copy</mat-icon>
+                <mat-icon>delete</mat-icon>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="icon">
+                <mat-icon>call</mat-icon>
+            </div>
+            <div>
+                <p>Telefone</p>
+                <h2>viniciuslima957hotmail.com</h2>
+            </div>
+            <div class="options">
+                <mat-icon>file_copy</mat-icon>
+                <mat-icon>delete</mat-icon>
+            </div>
+        </div>
+
+        <div class="item">
+            
+            <div class="icon">
+            <mat-icon>badge</mat-icon>
+            </div>
+
+            <div>
+                <p>CPF</p>
+                <h2>viniciuslima957hotmail.com</h2>
+            </div>
+            <div class="options">
+                <mat-icon>file_copy</mat-icon>
+                <mat-icon>delete</mat-icon>
+            </div>
+        </div>
+
+        <div class="item">
+
+            <div class="icon">
+            <mat-icon>key</mat-icon>
+            </div>
+
+            <div>
+                <p>Chave aleatória</p>
+                <h2>viniciuslima957hotmail.com</h2>
+            </div>
+            <div class="options">
+                <mat-icon>file_copy</mat-icon>
+                <mat-icon>delete</mat-icon>
+            </div>
+        </div>
+
+    </div>
+
+    <button  (click)="openPopUp(isPopUpOpen)">
+        Cadastrar outra chave
+    </button>
+
+    @if (isPopUpOpen) {
+
+        @if (popUpActive==1) {
+            <section id="popup">
+            <div id="background" (click)="openPopUp(isPopUpOpen)">
+    
+            </div>
+    
+            <div id="content">
+                
+            <h1>Selecione o tipo da chave:</h1>
+        
+            <ul>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    E-mail 
+                </li>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    Celular 
+                </li>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    CPF
+                </li>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    Aleatória 
+                </li>
+            </ul>
+        
+            <button (click)="nextPopUp()">Continuar</button>
+        
+            </div>
+        </section>
+
+        }
+
+        @if (popUpActive==2) {
+            <section id="popup">
+            <div id="background" (click)="openPopUp(isPopUpOpen)">
+    
+            </div>
+    
+            <div id="content">
+
+                <div (click)="previousPopUp()"> voltar</div>
+                
+            <h1>Selecione o tipo da chave: 2</h1>
+        
+            <ul>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    E-mail 
+                </li>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    Celular 
+                </li>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    CPF
+                </li>
+                <li>
+                    <input type="radio" name="tipo" id="">
+                    Aleatória 
+                </li>
+            </ul>
+        
+            <button>Continuar</button>
+        
+            </div>
+        </section>
+
+        }
+
+    }
+
+</main>
+

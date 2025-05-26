@@ -78,4 +78,8 @@ export class PainelComponent implements OnInit{
     this.router.navigate(["/transferir"])
   }
 
+  irParaAreaPix(){
+    this.router.navigate(["/areapix"])
+  }
+
 }
