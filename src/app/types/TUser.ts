@@ -1,0 +1,20 @@
+export type TUser = {
+    name: string,
+    birthday: Date,
+    email: string,
+    balance: number,
+    id: string,
+    userName: string,
+    normalizedUserName: string,
+    normalizedEmail: null,
+    emailConfirmed: string,
+    passwordHash: string,
+    securityStamp: string,
+    concurrencyStamp: string,
+    phoneNumber: null,
+    phoneNumberConfirmed: boolean,
+    twoFactorEnabled: boolean,
+    lockoutEnd: null,
+    lockoutEnabled: boolean,
+    accessFailedCount: number
+}

@@ -17,21 +17,28 @@
                     <label>Nome</label>
                     <input type="text" required placeholder="Vinicius Lima Santos" formControlName="name">
                     @if (name?.invalid && formDir.submitted) {
-                        <p class="erros">Insira uma senha valida!</p>
+                        <p class="erros">Insira seu nome.</p>
+                    }
+                </div>
+                <div class="input">
+                    <label>Data de nascimento</label>
+                    <input type="date" required placeholder="Vinicius Lima Santos" formControlName="birthday" max={{today}}>
+                    @if (name?.invalid && formDir.submitted) {
+                        <p class="erros">Insira uma data de nascimento válida.</p>
                     }
                 </div>
                 <div class="input">
                     <label>E-mail</label>
                     <input type="email" required placeholder="Seumelhoremail@hotmail.com" formControlName="email">
                     @if (email?.invalid && formDir.submitted) {
-                        <p class="erros">Insira uma senha valida!</p>
+                        <p class="erros">Insira um email valido.</p>
                     }
                 </div>
                 <div class="input">
                     <p>Senha {{signupForm.value.password}}</p>
                     <input type="text" placeholder="*******" formControlName="password">
                     @if (password?.invalid && formDir.submitted) {
-                        <p class="erros">Insira uma senha valida!</p>
+                        <p class="erros">Insira uma senha de no minimo 3 dígitos.</p>
                     }
                 </div>
                 <button [disabled]="signupForm.invalid">

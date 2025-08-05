@@ -7,7 +7,6 @@ import { authGuard } from './guards/auth-guard.guard';
 import { TranferenciaComponent } from './pages/tranferencia/tranferencia.component';
 import { TranferenciaValorComponent } from './pages/tranferencia-valor/tranferencia-valor.component';
 import { TransferenciaRevisaoComponent } from './pages/transferencia-revisao/transferencia-revisao.component';
-import { LoginService } from './services/login.service';
 
 export const routes: Routes = [
     {

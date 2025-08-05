@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { LoginService } from '../../services/login.service';
+import { LoginService } from '../../services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,8 @@ export class LoginComponent {
     this.loginService.login(this.loginForm.value).subscribe({
       next: (response) => {
         console.log('Login bem-sucedido:', response);
-        localStorage.setItem('token', response.accessToken)
+        localStorage.setItem('token', response.token)
+        localStorage.setItem('userInfo', JSON.stringify(response.user));
         this.router.navigate(["/painel"]);
       },
       error: (error) => {
