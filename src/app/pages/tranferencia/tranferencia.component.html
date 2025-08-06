@@ -15,7 +15,7 @@
         <h2>Recentes</h2>
 
         <div id="lista">
-            @for (user of users; track $index) {
+                        @for (user of users; track $index) {
                 <div class="item" (click)="selectAccount(user.id)" (click)="openPopUp(isPopUpOpen)">
                     <span>{{user.nome.charAt(0)}}</span>
                     <div class="info">

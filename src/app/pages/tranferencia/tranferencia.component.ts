@@ -58,7 +58,9 @@ export class TranferenciaComponent implements OnInit {
       chave: new FormControl<string>("", [Validators.required, Validators.minLength(11)])
     })
     const localUsers = localStorage.getItem("recentReceivers")!
-    this.users = JSON.parse(localUsers)
+    if(localUsers){
+      this.users = JSON.parse(localUsers)
+    }
   }
 
   get getChave(){
@@ -73,8 +75,8 @@ export class TranferenciaComponent implements OnInit {
     this.users.map((client)=>{
     if(client.id==this.id){
       this.currentClient = client
-    }}
-  )
+    }})
+    
   }
 
   isPopUpOpen:boolean = false;
