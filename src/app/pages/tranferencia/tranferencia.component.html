@@ -15,15 +15,18 @@
         <h2>Recentes</h2>
 
         <div id="lista">
-                        @for (user of users; track $index) {
-                <div class="item" (click)="selectAccount(user.id)" (click)="openPopUp(isPopUpOpen)">
-                    <span>{{user.nome.charAt(0)}}</span>
+            @for (user of users; track $index) {
+                <div class="item" (click)="selectAccount(user.chavePix!)" (click)="openPopUp(isPopUpOpen)">
+                    <span>{{user.name.charAt(0)}}</span>
                     <div class="info">
-                        <h1>{{user.nome}}</h1>
-                        <p>{{user.banco}}</p>
+                        <h1>{{user.name}}</h1>
+                        <p>{{user.name}}</p>
                     </div>
                 </div>
             }     
+            @if(users.length===0){
+                <p>Não a nenhum contato salvo. Você pode buscar um novo pela chave pix!</p>
+            }
         </div>
 
         <div>
@@ -43,9 +46,9 @@
         <h1>Deseja transferir para:</h1>
     
         <div>
-        <h1>{{currentClient.nome}}</h1>
-        <p>{{currentClient.id}}</p>
-        <p>{{currentClient.banco}}</p>
+            <h1>{{currentClient.name}}</h1>
+            <p>{{currentClient.chavePix}}</p>
+            <p>{{currentClient.email}}</p>
         </div>
     
         <button (click)="irParaValor()">Continuar</button>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { TUser } from '../../types/TUser';
 
 @Component({
   selector: 'app-tranferencia-valor',
@@ -18,12 +19,14 @@ export class TranferenciaValorComponent implements OnInit{
 
   data: any;
   valueForm!: FormGroup;
+  currentClient!: TUser;
 
   constructor (
     private route: ActivatedRoute,
     private router: Router
   ){
     this.data = this.router.getCurrentNavigation()?.extras.state
+    this.currentClient = this.data.currentClient
   }
 
   ngOnInit(): void {
@@ -49,7 +52,7 @@ export class TranferenciaValorComponent implements OnInit{
 
   irParaRevisao(){
     this.router.navigate([`/${this.message}/revisao`], {
-      state: {currentClient: this.data.currentClient , value: this.getValue.value}
+      state: {currentClient: this.currentClient , value: this.getValue.value}
     })
   }
 

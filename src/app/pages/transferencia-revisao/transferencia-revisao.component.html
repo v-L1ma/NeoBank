@@ -6,11 +6,11 @@
     
     <div class="container">
         <div class="containerInfos">
-            <p id="icone">{{data.currentClient.nome.at(0)}}</p>
+            <p id="icone">{{currentClient.name.at(0)}}</p>
             <div class="infos">
-                <h1>{{data.currentClient.nome}}</h1>
-                <p>111.111.111-11</p>
-                <p>{{data.currentClient.banco}}</p>
+                <h1>{{currentClient.name}}</h1>
+                <p>{{currentClient.chavePix}}</p>
+                <p>{{currentClient.email}}</p>
             </div>
         </div>
         
@@ -20,7 +20,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 9h11l-3-3M20 15H9l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <p>Saldo na carteira: <span>R$ 27,96</span></p>
+                <p>Saldo na carteira: <span>R$ {{userInfo.balance}}</span></p>
             </div>
         
             <div>
@@ -45,9 +45,12 @@
             
         <h1>Digite a sua senha:</h1>
 
-        <input type="password" autofocus>
-    
+        <form [formGroup]="SenhaForm" (ngSubmit)="sendTransacao()" #formDir="ngForm">
+
+        <input type="password" formControlName="senha" autofocus>
+
         <button id="finishBtn">Continuar</button>
+        </form>        
     
         </div>
     </section>

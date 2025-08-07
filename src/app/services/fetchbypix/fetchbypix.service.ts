@@ -12,6 +12,6 @@ export class FetchbypixService {
   constructor(private httpClient: HttpClient) { }
 
   fetch(chave: string):Observable<TFetchByPix>{
-    return this.httpClient.get<TFetchByPix>(`${environment.apiUrl}/${chave}`)
+    return this.httpClient.get<TFetchByPix>(`${environment.apiUrl}/Cliente/chavepix/${chave}`);
   }
 }

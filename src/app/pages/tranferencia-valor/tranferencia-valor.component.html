@@ -2,7 +2,7 @@
     <button id="back" routerLink="/painel">Fechar</button>
 
     <h1>Quanto você quer {{message}}?</h1>
-    <p>Você vai pagar {{data.currentClient.nome}}.</p>
+    <p>Você vai pagar {{currentClient.name.toUpperCase()}}.</p>
 
     <form [formGroup]="valueForm" (ngSubmit)="irParaRevisao()" #formDir="ngForm">
     <div>
