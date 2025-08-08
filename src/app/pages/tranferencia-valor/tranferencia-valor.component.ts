@@ -20,6 +20,7 @@ export class TranferenciaValorComponent implements OnInit{
   data: any;
   valueForm!: FormGroup;
   currentClient!: TUser;
+  userInfo: TUser;
 
   constructor (
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class TranferenciaValorComponent implements OnInit{
   ){
     this.data = this.router.getCurrentNavigation()?.extras.state
     this.currentClient = this.data.currentClient
+    this.userInfo = JSON.parse(localStorage.getItem('userInfo')!)
   }
 
   ngOnInit(): void {

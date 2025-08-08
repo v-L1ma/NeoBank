@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TUser } from '../../types/TUser';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TTransferirRequest } from '../../types/TTransferirRequest';
+import { TransferirServiceService } from '../../services/transferirService/transferir-service.service';
 
 @Component({
   selector: 'app-transferencia-revisao',
@@ -31,9 +33,14 @@ export class TransferenciaRevisaoComponent {
   
   isPopUpOpen:boolean = false;
 
-  transacaoRequest:any;
+  transferirRequest!:TTransferirRequest;
 
-  constructor(private location: Location, private route: ActivatedRoute, private router: Router){
+  constructor(
+    private location: Location, 
+    private route: ActivatedRoute, 
+    private router: Router,
+    private transferirService: TransferirServiceService
+  ){
     this.message=route.snapshot.data['message'];
     this.data = router.getCurrentNavigation()?.extras.state;
     this.currentClient = this.data.currentClient
@@ -58,13 +65,22 @@ export class TransferenciaRevisaoComponent {
   }
 
   sendTransacao(){
-    this.transacaoRequest = {
+    this.transferirRequest = {
       senderId: this.userInfo.id,
-      chavePix: this.currentClient.chavePix,
+      chavePix: this.currentClient.chavePix!,
       value: this.data.value,
       password: this.getSenha.value
     }
 
-    console.log(this.transacaoRequest)
+    this.transferirService.transferir(this.transferirRequest).subscribe({
+      next:(response)=>{
+        console.log(response)
+      },
+      error:(error)=>{
+        console.log(error)
+      }
+    })
+
+    console.log(this.transferirRequest)
   }
 }
