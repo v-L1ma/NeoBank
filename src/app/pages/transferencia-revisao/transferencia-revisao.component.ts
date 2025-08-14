@@ -6,6 +6,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TransferirService } from '../../services/transferir/transferir.service';
 import { Observable } from 'rxjs';
+import { ModalComponent } from "../../components/modal/modal/modal.component";
 
 interface IuserInfo {
   balance: string;
@@ -14,7 +15,7 @@ interface IuserInfo {
 
 @Component({
   selector: 'app-transferencia-revisao',
-  imports: [RouterModule, CommonModule, ReactiveFormsModule],
+  imports: [RouterModule, CommonModule, ReactiveFormsModule, ModalComponent],
   templateUrl: './transferencia-revisao.component.html',
   styleUrl: './transferencia-revisao.component.scss',
   animations: [
@@ -34,7 +35,10 @@ export class TransferenciaRevisaoComponent implements OnInit {
   passwordForm!: FormGroup;
   userInfo: IuserInfo;
   transferirRequest: any;
+  transferenciaResponseMessage:string ="";
+  transferenciaResponseStatus:string="";
 
+  isModalOpen:boolean=false;
   isPopUpOpen: boolean = false;
 
   constructor(
@@ -61,8 +65,12 @@ export class TransferenciaRevisaoComponent implements OnInit {
     this.location.back();
   }
 
-  openPopUp(isPopUpOpen: boolean) {
-    this.isPopUpOpen = !isPopUpOpen;
+  openPopUp() {
+    this.isPopUpOpen = !this.isPopUpOpen;
+  }
+
+  openModal() {
+    this.isModalOpen = !this.isModalOpen;
   }
 
   get password() {
@@ -79,8 +87,23 @@ export class TransferenciaRevisaoComponent implements OnInit {
           "value": this.data.value,
           "password": this.password.value
         }
+        this.openPopUp()
+        console.log(this.transferirRequest)
 
-        this.transferirService.transferir(this.transferirRequest, this.message);
+        this.transferirService.transferir(this.transferirRequest, this.message).subscribe({
+          next: (response)=>{
+            this.transferenciaResponseMessage = response.message;
+            this.transferenciaResponseStatus="sucesso";
+            console.log("Transferencia concluida com exito!");
+            this.openModal()
+          },
+          error: (error)=>{
+            console.log("Houve um erro!", error);
+            this.transferenciaResponseStatus="erro";
+            this.transferenciaResponseMessage = error.error.message;
+          }
+        })
+
         break;
 
       case "sacar":

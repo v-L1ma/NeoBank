@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TransferenciaResponse } from '../../types/TransferenciaResponse';
 
 interface ITransferenciaRequest {
   senderId?: string,
@@ -18,14 +19,7 @@ export class TransferirService {
 
   constructor(private http: HttpClient) { }
 
-  public transferir(TransferenciaRequest: ITransferenciaRequest, transacao:string){
-    return this.http.post(this.apiUrl+transacao, TransferenciaRequest, {responseType: "text"}).subscribe({
-      next: (response)=>{
-        console.log("Transferencia concluida com exito!", response);
-      },
-      error: (error)=>{
-        console.log("Transferencia concluida com exito!", error);
-      }
-    })
+  public transferir(TransferenciaRequest: ITransferenciaRequest, transacao:string):Observable<TransferenciaResponse>{
+    return this.http.post<TransferenciaResponse>(this.apiUrl+transacao, TransferenciaRequest)
   }
 }

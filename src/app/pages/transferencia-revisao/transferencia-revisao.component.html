@@ -32,12 +32,16 @@
         </div>
     </div>
 
-    <button id="finishBtn" (click)="openPopUp(isPopUpOpen)">Pagar</button>
+    @if (isModalOpen) {
+        <app-modal (fecharModal)="openModal()" status={{this.transferenciaResponseStatus}} message={{this.transferenciaResponseMessage}}></app-modal>
+    }
+
+    <button id="finishBtn" (click)="openPopUp()">Pagar</button>
 
     @if (isPopUpOpen) { 
     
         <section id="popup">
-        <div id="background" (click)="openPopUp(isPopUpOpen)">
+        <div id="background" (click)="openPopUp()">
 
         </div>
 
@@ -57,6 +61,8 @@
             </button>
     
         </form>
+
+        
 
         </div>
     </section>

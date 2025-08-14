@@ -21,7 +21,7 @@ export class AreapixComponent {
 
   isPopUpOpen:boolean = true;
 
-  popUpActive:number = 1;
+  popUpActive:number = 2;
 
   openPopUp(isPopUpOpen:boolean){
     this.isPopUpOpen = !isPopUpOpen;

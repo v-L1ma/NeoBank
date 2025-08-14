@@ -110,6 +110,68 @@ main{
         padding: 2em;
         border-radius: 2em 2em 0 0;
 
+        input{
+            width: 100%;
+            border: 2px solid rgba(128, 128, 128, 0.589);
+            border-radius: .5em;
+            padding: 1em;
+        }
+
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            margin-top: 2em;
+
+            li{
+                border-top: 1px solid rgba(128, 128, 128, 0.322);
+                padding:.5em 0;
+                display: flex;
+                gap: 2em;
+
+                &:hover{
+                    cursor: pointer;
+                    background-color: rgb(245, 245, 245);
+                }
+            }
+        }
+
+        button{
+            margin-top: 2em;
+        }
+    }
+}
+
+#popup2{
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.171);
+    height: 100vh;
+    width: 100vw;
+    justify-content: flex-end;
+    margin-left: -1em;
+    transform: 60ms;
+    gap: 0;
+    overflow: hidden;
+
+    #background{
+        height: 45%;
+        background-color: transparent;
+        border-radius: 0;
+    }
+
+    #content{
+        background-color: white;
+        padding: 2em;
+        border-radius: 2em 2em 0 0;
+
+        input{
+            width: 100%;
+            border: 2px solid rgba(128, 128, 128, 0.589);
+            border-radius: .5em;
+            padding: 1em;
+        }
+
         ul{
             list-style: none;
             display: flex;
@@ -154,6 +216,7 @@ main{
 
             div{
                 width: 100%;
+
             }
         }
     }

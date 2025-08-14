@@ -1,0 +1,76 @@
+<div id="background">
+
+    <div>
+        <p (click)="fechar()">x</p>
+
+        @if (status==="sucesso") {
+    <svg class="sucesso" width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle
+        cx="60"
+        cy="60"
+        r="50"
+        stroke="#4CAF50"
+        stroke-width="6"
+        fill="none"
+        stroke-dasharray="314"
+        stroke-dashoffset="314"
+        class="circle"
+        />
+        <path
+        d="M40 60 L55 75 L85 45"
+        stroke="#4CAF50"
+        stroke-width="6"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-dasharray="70"
+        stroke-dashoffset="70"
+        class="check"
+        />
+    </svg>
+        } @else {
+    <svg class="erro" width="220" height="220" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="60"
+          cy="60"
+          r="50"
+          stroke="#F44336"
+          stroke-width="6"
+          fill="none"
+          stroke-dasharray="314"
+          stroke-dashoffset="314"
+          class="circle"
+        />
+        <line
+          x1="40"
+          y1="40"
+          x2="80"
+          y2="80"
+          stroke="#F44336"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-dasharray="56.57"
+          stroke-dashoffset="56.57"
+          class="line1"
+        />
+        <line
+          x1="80"
+          y1="40"
+          x2="40"
+          y2="80"
+          stroke="#F44336"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-dasharray="56.57"
+          stroke-dashoffset="56.57"
+          class="line2"
+        />
+      </svg>
+    }
+
+
+    <p>{{message}}</p>
+
+    </div>
+
+</div>
