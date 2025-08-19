@@ -33,7 +33,7 @@
     </div>
 
     @if (isModalOpen) {
-        <app-modal (fecharModal)="openModal()" status={{this.transferenciaResponseStatus}} message={{this.transferenciaResponseMessage}}></app-modal>
+        <app-modal (fecharModal)="openModal('','')" status={{this.modalStatus}} message={{this.modalMessage}}></app-modal>
     }
 
     <button id="finishBtn" (click)="openPopUp()">Pagar</button>

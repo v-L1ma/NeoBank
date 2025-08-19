@@ -11,7 +11,7 @@ export class FetchClienteInfoByPixService {
 
   constructor(private http: HttpClient) { }
   
-  fetch(id:string):Observable<any>{
-    return this.http.get(this.apiUrl+id)
+  fetch(chave:string):Observable<any>{
+    return this.http.get(this.apiUrl+chave)
   }
 }

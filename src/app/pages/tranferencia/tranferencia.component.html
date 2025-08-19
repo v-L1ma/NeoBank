@@ -62,4 +62,8 @@
 
     }
 
+    @if (isModalOpen) {
+        <app-modal (fecharModal)="openModal('', '')" message={{this.modalMessage}} status={{this.modalStatus}}></app-modal>
+    }
+
 </main>

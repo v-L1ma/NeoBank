@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FetchClienteInfoByPixService } from '../../services/fetch-cliente-info-by-pix.service';
+import { ModalComponent } from "../../components/modal/modal/modal.component";
 
 interface IContacts {
   nome: string;
@@ -12,7 +13,7 @@ interface IContacts {
 
 @Component({
   selector: 'app-tranferencia',
-  imports: [ReactiveFormsModule ,RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, ModalComponent],
   templateUrl: './tranferencia.component.html',
   styleUrl: './tranferencia.component.scss',
   animations: [
@@ -30,6 +31,12 @@ export class TranferenciaComponent implements OnInit {
 
   chave: string = "";
   chaveForm!: FormGroup;
+  
+  isPopUpOpen:boolean = false;
+  isModalOpen:boolean = false;
+
+  modalMessage:string="";
+  modalStatus:string="";
 
   currentClient = {
     nome: "",
@@ -73,15 +80,22 @@ export class TranferenciaComponent implements OnInit {
         this.currentClient.banco = "NeoBank S.A.";
       }
       ,
-      error: (error)=> console.log("Houve um erro, ", error)
+      error: (error)=>{
+        console.log("Houve um erro, ", error);
+        this.openModal(error.message, "error");
+      }
     });
   }
-
-  isPopUpOpen:boolean = false;
 
   openPopUp(isPopUpOpen:boolean){
     this.fetchClientData(this.chave)
     this.isPopUpOpen = !isPopUpOpen;
+  }
+
+  openModal(message:string,status:string){
+    this.modalMessage=message;
+    this.modalStatus=status
+    this.isModalOpen = !this.isModalOpen;
   }
 
   searchNewReceiver(){
@@ -104,6 +118,7 @@ export class TranferenciaComponent implements OnInit {
       },
       error: (error)=>{
         console.log(error);
+        this.openModal(error.error, "error");
       }
     });
   }

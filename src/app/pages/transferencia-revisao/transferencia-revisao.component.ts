@@ -35,8 +35,8 @@ export class TransferenciaRevisaoComponent implements OnInit {
   passwordForm!: FormGroup;
   userInfo: IuserInfo;
   transferirRequest: any;
-  transferenciaResponseMessage:string ="";
-  transferenciaResponseStatus:string="";
+  modalMessage:string="";
+  modalStatus:string="";
 
   isModalOpen:boolean=false;
   isPopUpOpen: boolean = false;
@@ -69,7 +69,9 @@ export class TransferenciaRevisaoComponent implements OnInit {
     this.isPopUpOpen = !this.isPopUpOpen;
   }
 
-  openModal() {
+  openModal(message:string,status:string){
+    this.modalMessage=message;
+    this.modalStatus=status
     this.isModalOpen = !this.isModalOpen;
   }
 
@@ -92,15 +94,12 @@ export class TransferenciaRevisaoComponent implements OnInit {
 
         this.transferirService.transferir(this.transferirRequest, this.message).subscribe({
           next: (response)=>{
-            this.transferenciaResponseMessage = response.message;
-            this.transferenciaResponseStatus="sucesso";
             console.log("Transferencia concluida com exito!");
-            this.openModal()
+            this.openModal(response.message,"sucesso")
           },
           error: (error)=>{
             console.log("Houve um erro!", error);
-            this.transferenciaResponseStatus="erro";
-            this.transferenciaResponseMessage = error.error.message;
+            this.openModal(error.error,"erro")
           }
         })
 

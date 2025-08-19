@@ -1,7 +1,7 @@
 <div id="background">
 
     <div>
-        <p (click)="fechar()">x</p>
+        <p id="fechar" (click)="fechar()">x</p>
 
         @if (status==="sucesso") {
     <svg class="sucesso" width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
         />
     </svg>
         } @else {
-    <svg class="erro" width="220" height="220" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <svg class="erro" width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
         <circle
           cx="60"
           cy="60"
