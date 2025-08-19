@@ -111,7 +111,16 @@ export class TransferenciaRevisaoComponent implements OnInit {
           "value": this.data.value,
           "password": this.password.value
         }
-        this.transferirService.transferir(this.transferirRequest, this.message)
+        this.transferirService.transferir(this.transferirRequest, this.message).subscribe({
+          next: (response)=>{
+            console.log("Transferencia concluida com exito!");
+            this.openModal(response.message,"sucesso")
+          },
+          error: (error)=>{
+            console.log("Houve um erro!", error);
+            this.openModal(error.error,"erro")
+          }
+        })
         break;
 
       case "depositar":
@@ -119,7 +128,16 @@ export class TransferenciaRevisaoComponent implements OnInit {
           "clienteId": this.userInfo.id,
           "value": this.data.value,
         }
-        this.transferirService.transferir(this.transferirRequest, this.message);
+        this.transferirService.transferir(this.transferirRequest, "Depositar").subscribe({
+          next: (response)=>{
+            console.log("Transferencia concluida com exito!");
+            this.openModal(response.message,"sucesso")
+          },
+          error: (error)=>{
+            console.log("Houve um erro!", error);
+            this.openModal(error.error,"erro")
+          }
+        });
         break;
 
       case "cobrar":
@@ -127,7 +145,16 @@ export class TransferenciaRevisaoComponent implements OnInit {
           "receiverId": this.data.currentClient.id,
           "value": this.data.value,
         }
-        this.transferirService.transferir(this.transferirRequest, this.message);
+        this.transferirService.transferir(this.transferirRequest, this.message).subscribe({
+          next: (response)=>{
+            console.log("Transferencia concluida com exito!");
+            this.openModal(response.message,"sucesso")
+          },
+          error: (error)=>{
+            console.log("Houve um erro!", error);
+            this.openModal(error.error,"erro")
+          }
+        });
         break;
 
       default:

@@ -101,12 +101,12 @@ main{
 #popup{
     position: absolute;
     top: 0;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.171);
     height: 100%;
-    width: 100vw;
+    width: 100%;
     justify-content: flex-end;
-    margin-left: -1em;
-    transform: 60ms;
+    transition: 60ms ease-in;
     gap: 0;
     overflow: hidden;
 
@@ -132,11 +132,11 @@ main{
         flex-direction: column;
 
         input{
+            width: 95%;
             border: 1px solid rgba(128, 128, 128, 0.473);
             border-radius: 1em;
             margin-top: 1em;
             padding: 1em;
-
         }
 
         button{

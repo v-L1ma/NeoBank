@@ -51,7 +51,7 @@
         
         <form [formGroup]="passwordForm" (ngSubmit)="submit()" #formDir="ngForm">
     
-            <input formControlName="password" type="password" placeholder="********" autofocus>
+            <input id="senha" formControlName="password" type="password" placeholder="********" autofocus>
             @if(password.invalid && formDir.submitted){
                 <p>Por favor, insira uma senha válida.</p>
             }
