@@ -114,6 +114,7 @@ main{
         height: 55%;
         background-color: transparent;
         border-radius: 0;
+        width: 100vw;
     }
 
     button{
@@ -155,15 +156,11 @@ main{
 
 @media screen and (min-width:1100px){
     main{
-        width: 60vw;
+        padding: 0 20vw;
         margin: 0 auto;
 
-
-
     #popup{
-        width: 100vw;
         height: 100vh;
-        margin-left: -20vw;
 
         #background{
             height: 60%;
