@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
     ])
   ]
 })
-export class AreapixComponent {
+export class AreapixComponent{
 
   isPopUpOpen:boolean = true;
 

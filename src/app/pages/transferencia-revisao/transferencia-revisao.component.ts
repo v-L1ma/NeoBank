@@ -128,7 +128,7 @@ export class TransferenciaRevisaoComponent implements OnInit {
           "clienteId": this.userInfo.id,
           "value": this.data.value,
         }
-        this.transferirService.transferir(this.transferirRequest, "Depositar").subscribe({
+        this.transferirService.transferir(this.transferirRequest, this.message).subscribe({
           next: (response)=>{
             console.log("Transferencia concluida com exito!");
             this.openModal(response.message,"sucesso")
